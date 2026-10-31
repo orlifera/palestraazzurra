@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server"
 
+import { PlanBackdrop } from "@/components/motion/plan-backdrop"
 import { About } from "@/components/site/about"
 import { Contact } from "@/components/site/contact"
 import { Courses } from "@/components/site/courses"
@@ -17,6 +18,7 @@ export default async function Page({ params }: PageProps<"/[locale]">) {
 
   return (
     <>
+      <PlanBackdrop />
       <Header />
       <main id="main" className="overflow-x-clip">
         <Hero />

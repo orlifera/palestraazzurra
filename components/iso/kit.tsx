@@ -207,7 +207,13 @@ export type BarbellShape = ReturnType<typeof barbell>
 
 // ---------- Palettes ----------
 
-export type IsoTone = "plain" | "onPlatform"
+/**
+ * `drawing` is the plan behind the whole site: hidden-line faces on the page
+ * ground, edges ruled in sheet-line like a technical drawing, azure kept for
+ * the plates. Pair it with the `iso-drawing` class (app/globals.css), which
+ * keeps every stroke one pixel at any scale.
+ */
+export type IsoTone = "plain" | "onPlatform" | "drawing"
 
 export type Palette = {
   /** The slab the scene stands on. */
@@ -248,6 +254,10 @@ const STEEL: Palette["steel"] = [
   "fill-steel-dark",
   "fill-(--iso-iron-rim)",
 ]
+
+const D = "fill-background stroke-sheet-line"
+const M = "fill-muted stroke-sheet-line"
+const S_ = "fill-background stroke-steel"
 
 export const PALETTES: Record<IsoTone, Palette> = {
   plain: {
@@ -307,6 +317,36 @@ export const PALETTES: Record<IsoTone, Palette> = {
     sand: "fill-(--iso-sand)/25",
     sea: ["fill-primary/30", "fill-primary/45", "fill-primary/60"],
     tree: "fill-emerald-400/60",
+  },
+  drawing: {
+    floor: [D, D, D],
+    mat: [M, M, M],
+    strip: "fill-accent stroke-sheet-line",
+    wall: [D, D, D],
+    steel: [S_, S_, S_],
+    plate: {
+      azure: [
+        "fill-primary/55 stroke-primary",
+        "fill-primary/25 stroke-primary",
+        "fill-background stroke-primary",
+      ],
+      iron: [S_, S_, S_],
+    },
+    line: "stroke-sheet-line",
+    body: "stroke-steel-dark",
+    head: "fill-steel-dark",
+    letter: "fill-sheet-line",
+    sheet: D,
+    sheetHead: "fill-sheet-line",
+    mouth: M,
+    glass: "fill-accent stroke-sheet-line",
+    sand: "fill-(--iso-sand)/60 stroke-sheet-line",
+    sea: [
+      "fill-primary/15 stroke-primary/40",
+      "fill-primary/25 stroke-primary/40",
+      "fill-primary/30 stroke-primary/40",
+    ],
+    tree: D,
   },
 }
 
@@ -585,7 +625,7 @@ export const STANDING: Pose = {
 }
 
 /** How far each side's joint sits from the midline, along x. */
-const SPREAD: Record<Exclude<Joint, "head">, number> = {
+export const SPREAD: Record<Exclude<Joint, "head">, number> = {
   foot: 0.13,
   knee: 0.12,
   hip: 0.1,

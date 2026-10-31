@@ -296,6 +296,22 @@
   background-size: 5px 5px;
 }
 
+/* Lenis drives the scroll; native smooth scrolling would fight it. */
+html.lenis {
+  scroll-behavior: auto !important;
+}
+
+/* The plan behind the site (components/iso, tone "drawing"): one-pixel
+   rules at any scale, like ink on a drawing. */
+.iso-drawing :is(polygon, path, line, polyline, ellipse, circle) {
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+/* Figures drawn on the plan keep their proportions as it scales. */
+.iso-drawing .iso-solid :is(polygon, path, line, polyline, ellipse, circle) {
+  vector-effect: none;
+}
+
 /* Hero entrance that does not depend on JS. */
 @keyframes rise {
   from {

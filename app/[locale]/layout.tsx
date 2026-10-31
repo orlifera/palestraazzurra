@@ -7,6 +7,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server"
 import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { MotionProvider } from "@/components/motion/motion-provider"
+import { SmoothScroll } from "@/components/motion/smooth-scroll"
 import { Toaster } from "@/components/ui/sonner"
 import { routing } from "@/i18n/routing"
 import { cn } from "@/lib/utils"
@@ -64,7 +65,9 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider>
           <ThemeProvider>
-            <MotionProvider>{children}</MotionProvider>
+            <MotionProvider>
+              <SmoothScroll>{children}</SmoothScroll>
+            </MotionProvider>
             <Toaster position="bottom-center" />
           </ThemeProvider>
         </NextIntlClientProvider>
