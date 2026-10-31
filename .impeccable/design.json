@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-30T19:26:37+00:00",
+  "title": "Design System: Palestra Azzurra",
+  "extensions": {
+    "colorMeta": {
+      "azure-plate": {
+        "role": "primary",
+        "displayName": "Bumper Azure",
+        "canonical": "oklch(0.6723 0.1606 244.9955)",
+        "tonalRamp": [
+          "oklch(0.15 0.1600 244.9955)",
+          "oklch(0.26 0.1600 244.9955)",
+          "oklch(0.37 0.1600 244.9955)",
+          "oklch(0.48 0.1600 244.9955)",
+          "oklch(0.60 0.1600 244.9955)",
+          "oklch(0.72 0.1600 244.9955)",
+          "oklch(0.84 0.1600 244.9955)",
+          "oklch(0.95 0.0400 244.9955)"
+        ],
+        "darkMode": "oklch(0.6692 0.1607 245.011)"
+      },
+      "platform-ink": {
+        "role": "neutral",
+        "displayName": "Platform Ink",
+        "canonical": "oklch(0.1884 0.0128 248.5103)",
+        "tonalRamp": [
+          "oklch(0.15 0.0128 248.5103)",
+          "oklch(0.26 0.0128 248.5103)",
+          "oklch(0.37 0.0128 248.5103)",
+          "oklch(0.48 0.0128 248.5103)",
+          "oklch(0.60 0.0128 248.5103)",
+          "oklch(0.72 0.0128 248.5103)",
+          "oklch(0.84 0.0128 248.5103)",
+          "oklch(0.95 0.0128 248.5103)"
+        ],
+        "darkModePlatform": "oklch(0.2097 0.008 274.5332)"
+      },
+      "ground-white": {
+        "role": "neutral",
+        "displayName": "Ground White",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0.0000 0)",
+          "oklch(0.26 0.0000 0)",
+          "oklch(0.37 0.0000 0)",
+          "oklch(0.48 0.0000 0)",
+          "oklch(0.60 0.0000 0)",
+          "oklch(0.72 0.0000 0)",
+          "oklch(0.84 0.0000 0)",
+          "oklch(0.95 0.0000 0)"
+        ]
+      },
+      "chalk-card": {
+        "role": "neutral",
+        "displayName": "Chalk Card",
+        "canonical": "oklch(0.9784 0.0011 197.1387)",
+        "tonalRamp": [
+          "oklch(0.15 0.0011 197.1387)",
+          "oklch(0.26 0.0011 197.1387)",
+          "oklch(0.37 0.0011 197.1387)",
+          "oklch(0.48 0.0011 197.1387)",
+          "oklch(0.60 0.0011 197.1387)",
+          "oklch(0.72 0.0011 197.1387)",
+          "oklch(0.84 0.0011 197.1387)",
+          "oklch(0.95 0.0011 197.1387)"
+        ]
+      },
+      "chalk-muted": {
+        "role": "neutral",
+        "displayName": "Chalk Muted",
+        "canonical": "oklch(0.9222 0.0013 286.3737)",
+        "tonalRamp": [
+          "oklch(0.15 0.0013 286.3737)",
+          "oklch(0.26 0.0013 286.3737)",
+          "oklch(0.37 0.0013 286.3737)",
+          "oklch(0.48 0.0013 286.3737)",
+          "oklch(0.60 0.0013 286.3737)",
+          "oklch(0.72 0.0013 286.3737)",
+          "oklch(0.84 0.0013 286.3737)",
+          "oklch(0.95 0.0013 286.3737)"
+        ]
+      },
+      "azure-wash": {
+        "role": "neutral",
+        "displayName": "Azure Wash",
+        "canonical": "oklch(0.9392 0.0166 250.8453)",
+        "tonalRamp": [
+          "oklch(0.15 0.0166 250.8453)",
+          "oklch(0.26 0.0166 250.8453)",
+          "oklch(0.37 0.0166 250.8453)",
+          "oklch(0.48 0.0166 250.8453)",
+          "oklch(0.60 0.0166 250.8453)",
+          "oklch(0.72 0.0166 250.8453)",
+          "oklch(0.84 0.0166 250.8453)",
+          "oklch(0.95 0.0166 250.8453)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(0.9317 0.0118 231.6594)",
+        "tonalRamp": [
+          "oklch(0.15 0.0118 231.6594)",
+          "oklch(0.26 0.0118 231.6594)",
+          "oklch(0.37 0.0118 231.6594)",
+          "oklch(0.48 0.0118 231.6594)",
+          "oklch(0.60 0.0118 231.6594)",
+          "oklch(0.72 0.0118 231.6594)",
+          "oklch(0.84 0.0118 231.6594)",
+          "oklch(0.95 0.0118 231.6594)"
+        ]
+      },
+      "sheet-line": {
+        "role": "neutral",
+        "displayName": "Sheet Line",
+        "canonical": "oklch(0.8 0.03 244.99)",
+        "tonalRamp": [
+          "oklch(0.15 0.0300 244.99)",
+          "oklch(0.26 0.0300 244.99)",
+          "oklch(0.37 0.0300 244.99)",
+          "oklch(0.48 0.0300 244.99)",
+          "oklch(0.60 0.0300 244.99)",
+          "oklch(0.72 0.0300 244.99)",
+          "oklch(0.84 0.0300 244.99)",
+          "oklch(0.95 0.0300 244.99)"
+        ]
+      },
+      "platform-muted": {
+        "role": "neutral",
+        "displayName": "Platform Muted",
+        "canonical": "oklch(0.78 0.012 248.5)",
+        "tonalRamp": [
+          "oklch(0.15 0.0120 248.5)",
+          "oklch(0.26 0.0120 248.5)",
+          "oklch(0.37 0.0120 248.5)",
+          "oklch(0.48 0.0120 248.5)",
+          "oklch(0.60 0.0120 248.5)",
+          "oklch(0.72 0.0120 248.5)",
+          "oklch(0.84 0.0120 248.5)",
+          "oklch(0.95 0.0120 248.5)"
+        ]
+      },
+      "platform-line": {
+        "role": "neutral",
+        "displayName": "Platform Line",
+        "canonical": "oklch(0.3 0.014 248.5)",
+        "tonalRamp": [
+          "oklch(0.15 0.0140 248.5)",
+          "oklch(0.26 0.0140 248.5)",
+          "oklch(0.37 0.0140 248.5)",
+          "oklch(0.48 0.0140 248.5)",
+          "oklch(0.60 0.0140 248.5)",
+          "oklch(0.72 0.0140 248.5)",
+          "oklch(0.84 0.0140 248.5)",
+          "oklch(0.95 0.0140 248.5)"
+        ]
+      },
+      "steel": {
+        "role": "neutral",
+        "displayName": "Steel",
+        "canonical": "oklch(0.72 0.006 248.5)",
+        "tonalRamp": [
+          "oklch(0.15 0.0060 248.5)",
+          "oklch(0.26 0.0060 248.5)",
+          "oklch(0.37 0.0060 248.5)",
+          "oklch(0.48 0.0060 248.5)",
+          "oklch(0.60 0.0060 248.5)",
+          "oklch(0.72 0.0060 248.5)",
+          "oklch(0.84 0.0060 248.5)",
+          "oklch(0.95 0.0060 248.5)"
+        ]
+      },
+      "steel-dark": {
+        "role": "neutral",
+        "displayName": "Steel Dark",
+        "canonical": "oklch(0.48 0.008 248.5)",
+        "tonalRamp": [
+          "oklch(0.15 0.0080 248.5)",
+          "oklch(0.26 0.0080 248.5)",
+          "oklch(0.37 0.0080 248.5)",
+          "oklch(0.48 0.0080 248.5)",
+          "oklch(0.60 0.0080 248.5)",
+          "oklch(0.72 0.0080 248.5)",
+          "oklch(0.84 0.0080 248.5)",
+          "oklch(0.95 0.0080 248.5)"
+        ]
+      },
+      "focus-ring": {
+        "role": "primary",
+        "displayName": "Focus Ring",
+        "canonical": "oklch(0.6818 0.1584 243.354)",
+        "tonalRamp": [
+          "oklch(0.15 0.1584 243.354)",
+          "oklch(0.26 0.1584 243.354)",
+          "oklch(0.37 0.1584 243.354)",
+          "oklch(0.48 0.1584 243.354)",
+          "oklch(0.60 0.1584 243.354)",
+          "oklch(0.72 0.1584 243.354)",
+          "oklch(0.84 0.1584 243.354)",
+          "oklch(0.95 0.0400 243.354)"
+        ]
+      },
+      "destructive": {
+        "role": "error",
+        "displayName": "Signal Red",
+        "canonical": "oklch(0.6188 0.2376 25.7658)",
+        "tonalRamp": [
+          "oklch(0.15 0.1600 25.7658)",
+          "oklch(0.26 0.1600 25.7658)",
+          "oklch(0.37 0.1600 25.7658)",
+          "oklch(0.48 0.1600 25.7658)",
+          "oklch(0.60 0.1600 25.7658)",
+          "oklch(0.72 0.1600 25.7658)",
+          "oklch(0.84 0.1600 25.7658)",
+          "oklch(0.95 0.0400 25.7658)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name only; the barbell sits inside the heading.",
+        "fontStretch": "75%",
+        "textTransform": "uppercase",
+        "utility": "font-display"
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles; narrower sections step down the same clamp shape.",
+        "fontStretch": "75%",
+        "textTransform": "uppercase",
+        "utility": "font-display"
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Coach names, course rows, sub-section titles.",
+        "fontStretch": "75%",
+        "textTransform": "uppercase",
+        "utility": "font-display"
+      },
+      "stamp": {
+        "displayName": "Stamp",
+        "purpose": "Hero motto and the one-line lead under a section title.",
+        "fontStretch": "75%",
+        "textTransform": "uppercase",
+        "utility": "font-stamp"
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, 48-62ch.",
+        "fontFeature": "tabular-nums on hours, phone, counters (utility: tabular)"
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Field labels, scheda column heads, chips, kg tally.",
+        "fontStretch": "75%",
+        "textTransform": "uppercase",
+        "utility": "font-stamp"
+      }
+    },
+    "shadows": [
+      {
+        "name": "flat",
+        "value": "none",
+        "purpose": "The pinned theme's shadow scale resolves to zero opacity; nothing elevates."
+      }
+    ],
+    "materials": [
+      {
+        "name": "rubber",
+        "value": "background-color: var(--platform); background-image: radial-gradient(oklch(1 0 0 / 0.045) 0.6px, transparent 0.7px); background-size: 5px 5px",
+        "purpose": "Platform bands, mobile menu sheet, footer."
+      },
+      {
+        "name": "knurl",
+        "value": "background-color: var(--steel); background-image: repeating-linear-gradient(60deg, transparent 0 2px, var(--steel-dark) 2px 3px), repeating-linear-gradient(-60deg, transparent 0 2px, var(--steel-dark) 2px 3px)",
+        "purpose": "Barbell shaft and the balance bar."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Hero text rise (0.9s), kg tally count (0.6s), course-row highlight sweep (500ms)."
+      },
+      {
+        "name": "hero-load",
+        "value": "plates at 450ms + 280ms each, lift 380ms after the last",
+        "purpose": "Hero plate-loading sequence."
+      },
+      {
+        "name": "spring-clank",
+        "value": "stiffness 420, damping 9",
+        "purpose": "Bar ends ring out after a plate lands."
+      },
+      {
+        "name": "spring-lift",
+        "value": "stiffness 260, damping 7 (bar); stiffness 140, damping 14 (headline word)",
+        "purpose": "Hero press."
+      },
+      {
+        "name": "spring-stamp",
+        "value": "stiffness 640, damping 24, mass 0.9",
+        "purpose": "Stamp tick landing, once in view."
+      },
+      {
+        "name": "spring-balance",
+        "value": "stiffness 60, damping 6, mass 1.4, delay 0.2s",
+        "purpose": "Balance bar settling level from -7deg."
+      },
+      {
+        "name": "spring-flag",
+        "value": "stiffness 420, damping 32",
+        "purpose": "Scheda flag sliding between rows."
+      },
+      {
+        "name": "plate-roll",
+        "value": "scroll-linked rotation, about +/-70deg across the element's pass",
+        "purpose": "Plate faces."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animations and transitions collapse to 0.01ms; end states shown",
+        "purpose": "Accessibility floor."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ],
+    "focus": {
+      "value": "outline: 2px solid var(--ring); outline-offset: 3px",
+      "purpose": "Global focus-visible ring."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Azure pill call to action (Scrivici, directions, call).",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Scrivici</a>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; gap:8px; height:52px; padding:0 28px; border-radius:9999px; background:var(--primary); color:var(--primary-foreground); font-family:\"Open Sans\", sans-serif; font-size:16px; font-weight:700; text-decoration:none; transition:background .15s; } .ds-btn-primary:hover { background:color-mix(in oklch, var(--primary) 80%, transparent); } .ds-btn-primary:focus-visible { outline:2px solid var(--ring); outline-offset:3px; } .ds-btn-primary:active { transform:translateY(1px); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Phone number beside the primary action.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3.8 4.9c.4-1 1.4-1.6 2.4-1.4l1.9.4c.6.1 1.1.6 1.3 1.2l.6 2.2c.2.6 0 1.3-.5 1.7l-1.3 1.1a12 12 0 0 0 5.7 5.7l1.1-1.3c.4-.5 1.1-.7 1.7-.5l2.2.6c.6.2 1.1.7 1.2 1.3l.4 1.9c.2 1-.4 2-1.4 2.4-1.6.6-3.4.6-5-.1A17 17 0 0 1 3.9 9.9c-.7-1.6-.7-3.4-.1-5Z\"/></svg>0566 469433</a>",
+      "css": ".ds-btn-outline { display:inline-flex; align-items:center; gap:8px; height:52px; padding:0 24px; border-radius:9999px; border:1px solid var(--border); background:var(--background); color:var(--foreground); font-family:\"Open Sans\", sans-serif; font-size:16px; font-weight:600; font-variant-numeric:tabular-nums; text-decoration:none; transition:background .15s; } .ds-btn-outline:hover { background:var(--muted); } .ds-btn-outline:focus-visible { outline:2px solid var(--ring); outline-offset:3px; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "header-bar",
+      "description": "Floating translucent bar with pill links and the primary action.",
+      "html": "<nav class=\"ds-nav\"><strong class=\"ds-nav-logo\">AZZURRA</strong><a href=\"#\">Home</a><a href=\"#\">Staff</a><a href=\"#\">Lab</a><a href=\"#\">Orari</a><span class=\"ds-nav-kg\">60<small>kg</small></span><a class=\"ds-nav-cta\" href=\"#\">Scrivici</a></nav>",
+      "css": ".ds-nav { display:flex; align-items:center; gap:4px; height:56px; padding:0 8px 0 16px; border:1px solid var(--border); border-radius:var(--radius); background:color-mix(in oklch, var(--background) 70%, transparent); backdrop-filter:blur(12px); font-family:\"Open Sans\", sans-serif; } .ds-nav-logo { font-stretch:75%; font-weight:800; text-transform:uppercase; margin-right:16px; } .ds-nav a { padding:8px 12px; border-radius:9999px; font-size:14px; font-weight:600; color:var(--foreground); text-decoration:none; transition:background .15s,color .15s; } .ds-nav a:hover { background:var(--accent); color:var(--accent-foreground); } .ds-nav a:focus-visible { outline:2px solid var(--ring); outline-offset:3px; } .ds-nav-kg { margin-left:auto; font-stretch:75%; font-weight:700; letter-spacing:.06em; font-size:14px; font-variant-numeric:tabular-nums; } .ds-nav-kg small { font-size:.7em; opacity:.7; margin-left:2px; } .ds-nav a.ds-nav-cta { margin-left:8px; height:40px; display:inline-flex; align-items:center; padding:0 20px; background:var(--primary); color:var(--primary-foreground); font-weight:700; } .ds-nav a.ds-nav-cta:hover { background:color-mix(in oklch, var(--primary) 80%, transparent); color:var(--primary-foreground); }"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Contact form field: stamp-caps label, sheet-line stroke, azure focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Nome <b>*</b></span><input class=\"ds-input\" placeholder=\"\"></label>",
+      "css": ".ds-field { display:grid; gap:8px; font-family:\"Open Sans\", sans-serif; } .ds-field-label { font-stretch:75%; font-weight:700; text-transform:uppercase; letter-spacing:.06em; font-size:14px; color:var(--foreground); } .ds-field-label b { color:var(--primary); } .ds-input { height:48px; padding:0 16px; border:2px solid var(--sheet-line); border-radius:calc(var(--radius) + 4px); background:var(--background); color:var(--foreground); font:inherit; font-size:16px; outline:none; transition:border-color .15s, box-shadow .15s; } .ds-input:focus-visible { border-color:var(--primary); box-shadow:0 0 0 3px color-mix(in oklch, var(--primary) 25%, transparent); }"
+    },
+    {
+      "name": "Role Chip",
+      "kind": "chip",
+      "refersTo": "role-chip",
+      "description": "Outlined azure stamp-caps pill for coach roles and short notes.",
+      "html": "<span class=\"ds-chip\">Personal trainer</span>",
+      "css": ".ds-chip { display:inline-flex; padding:4px 12px; border:2px solid var(--primary); border-radius:9999px; color:var(--primary); font-family:\"Open Sans\", sans-serif; font-stretch:75%; font-weight:700; text-transform:uppercase; letter-spacing:.06em; font-size:12px; }"
+    },
+    {
+      "name": "Scheda",
+      "kind": "card",
+      "refersTo": "scheda-header",
+      "description": "The training card: ink header strip, ruled rows, stamped ticks.",
+      "html": "<div class=\"ds-scheda\"><div class=\"ds-scheda-head\"><span>Scheda corsi</span><small>Palestra Azzurra</small></div><div class=\"ds-scheda-row\"><span class=\"n\">01</span><span class=\"t\">Sala pesi</span><svg class=\"ds-stamp\" viewBox=\"0 0 64 64\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"32\" cy=\"32\" r=\"27\" stroke-width=\"4.2\"/><circle cx=\"32\" cy=\"32\" r=\"21.5\" stroke-width=\"1.4\" opacity=\".7\"/><path d=\"M20.5 33.5 L28.5 41 L44 23.5\" stroke-width=\"5.4\"/></svg></div><a class=\"ds-scheda-row\" href=\"#\"><span class=\"n\">02</span><span class=\"t\">Functional</span><svg class=\"ds-stamp\" style=\"transform:rotate(-7deg)\" viewBox=\"0 0 64 64\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"32\" cy=\"32\" r=\"27\" stroke-width=\"4.2\"/><circle cx=\"32\" cy=\"32\" r=\"21.5\" stroke-width=\"1.4\" opacity=\".7\"/><path d=\"M20.5 33.5 L28.5 41 L44 23.5\" stroke-width=\"5.4\"/></svg></a></div>",
+      "css": ".ds-scheda { overflow:hidden; border:2px solid var(--foreground); border-radius:var(--radius); background:var(--background); color:var(--foreground); font-family:\"Open Sans\", sans-serif; } .ds-scheda-head { display:flex; justify-content:space-between; align-items:baseline; padding:12px 28px; background:var(--foreground); color:var(--background); font-stretch:75%; font-weight:700; text-transform:uppercase; letter-spacing:.06em; font-size:18px; } .ds-scheda-head small { font-size:12px; opacity:.8; } .ds-scheda-row { display:grid; grid-template-columns:4rem 1fr 6rem; align-items:center; padding:24px 28px; border-bottom:1px solid var(--sheet-line); color:inherit; text-decoration:none; transition:background .15s; } .ds-scheda-row:last-child { border-bottom:0; } a.ds-scheda-row:hover { background:var(--accent); } a.ds-scheda-row:focus-visible { outline:2px solid var(--ring); outline-offset:-2px; } .ds-scheda-row .n { font-stretch:75%; font-weight:700; letter-spacing:.06em; font-variant-numeric:tabular-nums; opacity:.6; } .ds-scheda-row .t { font-stretch:75%; font-weight:800; text-transform:uppercase; font-size:2.75rem; line-height:1; } .ds-stamp { justify-self:end; width:56px; height:56px; color:var(--primary); transform:rotate(-13deg); }"
+    },
+    {
+      "name": "Platform Band",
+      "kind": "custom",
+      "refersTo": "platform-band",
+      "description": "Rubber-grain ink slab with a knurled steel bar.",
+      "html": "<section class=\"ds-platform\"><p class=\"ds-platform-title\">Orari</p><p class=\"ds-platform-muted\">Lun - Ven, orario continuato</p><div class=\"ds-knurl\"></div></section>",
+      "css": ".ds-platform { padding:48px 40px; border-radius:calc(var(--radius) * 2); background-color:var(--platform); background-image:radial-gradient(oklch(1 0 0 / .045) .6px, transparent .7px); background-size:5px 5px; color:var(--platform-foreground); font-family:\"Open Sans\", sans-serif; } .ds-platform-title { margin:0; font-stretch:75%; font-weight:800; text-transform:uppercase; letter-spacing:-.01em; line-height:.88; font-size:5rem; } .ds-platform-muted { color:var(--platform-muted); font-size:18px; } .ds-knurl { margin-top:32px; height:12px; border-radius:9999px; background-color:var(--steel); background-image:repeating-linear-gradient(60deg, transparent 0 2px, var(--steel-dark) 2px 3px), repeating-linear-gradient(-60deg, transparent 0 2px, var(--steel-dark) 2px 3px); }"
+    },
+    {
+      "name": "Open Status",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Live open/closed line from the real hours.",
+      "html": "<p class=\"ds-status\"><span class=\"ds-dot\"></span>Aperto ora <span class=\"ds-status-sub\">· chiude alle 21:30</span></p>",
+      "css": "@keyframes ds-ping { 75%,100% { transform:scale(2); opacity:0; } } .ds-status { display:inline-flex; align-items:center; gap:8px; font-family:\"Open Sans\", sans-serif; font-size:14px; font-weight:600; color:var(--foreground); } .ds-status-sub { font-weight:400; opacity:.8; } .ds-dot { position:relative; width:10px; height:10px; border-radius:9999px; background:var(--primary); } .ds-dot::after { content:''; position:absolute; inset:0; border-radius:inherit; background:var(--primary); opacity:.6; animation:ds-ping 1s cubic-bezier(0,0,.2,1) infinite; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Loaded Platform",
+    "overview": "**Creative North Star: \"The Loaded Platform\"**\n\nThe page is a lifting platform with the member's training card (the scheda) clipped to it. White is the gym floor under strip light; near-black is the rubber platform, laid down as full-bleed rounded bands; azure is the bumper-plate colour and the stamp ink. Every recurring device is a piece of the weight room drawn literally: a knurled steel bar, plates as slabs with the system radius, programme rows ruled on hairlines and ticked with a rubber stamp.\n\nDensity is low and heavy. Sections stack as blocks with deep gaps (6rem, 9rem on desktop), headlines are condensed stamped caps at very large sizes, and lists are rows on a sheet rather than tiles. Rank is shown by scale: the two numbers the gym owns (17 years, 24 degrees) are stamped huge on rolling plate faces, never set in a stat band. State is shown by a mark, not a hue change: a stamped tick means done, a folded azure tab means \"you are here\".\n\nMotion is reserved for authored moments that belong to the world: plates slamming onto the hero bar and the press, the header rail loading one plate per section with a running kg tally, plate faces rolling with scroll, the balance bar settling level, stamps landing on scheda rows. Section content otherwise renders static and visible; there is no generic fade-up entrance. Under reduced motion everything is shown in its end state.",
+    "keyCharacteristics": [
+      "Pinned tweakcn palette: azure primary, near-black ink, white and black grounds, flat shadows, 1.3rem radius.",
+      "Condensed (wdth 75) Open Sans in caps as the only display voice; Open Sans regular for reading.",
+      "Rubber-black platform bands with fine grain alternate with white ground.",
+      "Rows on hairline grids instead of card grids.",
+      "Physical, spring-driven motion only where a weight-room object moves."
+    ],
+    "rules": [
+      {
+        "name": "The Plate Colour Rule",
+        "body": "Azure is reserved for things that would be azure in the gym: plates, stamp ink, the call to action, the current marker. It is never a section background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Reads Rule",
+        "body": "Text meant to be read on a white ground sits in platform ink. Azure text is legible only on the rubber platform.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stamped Caps Rule",
+        "body": "Every heading is condensed 800 caps at line-height 0.88. There is no second display face and no sentence-case heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Scale Is Rank Rule",
+        "body": "Importance is expressed by size, not by boxes: the gym's numbers are stamped on plates at clamp(3.5rem, 9vw, 7.5rem), hours are set as display numerals at clamp(3rem, 7vw, 6rem).",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Floor Rule",
+        "body": "No box shadows. Separation is a change of material (white ground, rubber band, steel) or a 2px ink rule, never a drop shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set every heading in condensed 800 caps (wdth 75) at line-height 0.88.",
+      "Do keep the 1.3rem radius on every slab (photos, cards, plates, header) and use full pills for controls.",
+      "Do present lists as rows on a scheda: ink top rule, sheet-line hairlines, a number column and a mark column.",
+      "Do show completion with a stamp and position with the folded flag, not with a colour change alone.",
+      "Do alternate white ground with rubber platform bands to pace the page.",
+      "Do use tabular numerals for hours, phone numbers, counters and the kg tally.",
+      "Do give motion physical causes (plates landing, a bar settling, a stamp hitting paper) and show the end state under reduced motion."
+    ],
+    "donts": [
+      "Don't add box shadows; the theme is flat by decision.",
+      "Don't set reading text in azure on a white ground (2.9:1); keep it in ink.",
+      "Don't lay content out as equal card grids or stat bands; use rows, plates and scale.",
+      "Don't add generic fade-up or scroll-reveal entrances to section content.",
+      "Don't introduce a second display face or set headings in sentence case.",
+      "Don't use azure as a section background; the rubber platform is the only dark band."
+    ]
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "title": "Palestra Azzurra · Follonica",
+    "description": "Palestra Azzurra is a wellness institution in Follonica. 200m from the sea: a weights floor with Technogym, Toorx, Panatta and Sidea equipment, a group-class studio and Azzurra Lab, the first personal training studio in Follonica."
+  },
+  "nav": {
+    "home": "Home",
+    "staff": "Staff",
+    "lab": "Personal Training",
+    "hours": "Hours",
+    "contact": "Contact",
+    "cta": "Write to us",
+    "call": "Call",
+    "menu": "Menu",
+    "close": "Close",
+    "skip": "Skip to content",
+    "language": "Italiano",
+    "languageShort": "IT",
+    "theme": "Toggle theme",
+    "load": "Load on the bar"
+  },
+  "status": {
+    "open": "Open now",
+    "closed": "Closed now",
+    "closesAt": "closes at {time}",
+    "opensAt": "reopens {day} at {time}",
+    "today": "today",
+    "tomorrow": "tomorrow"
+  },
+  "hero": {
+    "title": "Palestra Azzurra",
+    "motto": "Your dream, our goal",
+    "lead": "The centre of your wellbeing.",
+    "sub": "Reach your goals in the most effective way.",
+    "coach": "Get coached by a Health Coach!",
+    "more": "Find out more",
+    "photoAlt": "The Palestra Azzurra staff on the gym floor"
+  },
+  "equipped": "equipped with :",
+  "about": {
+    "title": "Palestra Azzurra is a wellness institution in Follonica",
+    "challengeTitle": "Our challenge",
+    "challenge": "to be an active part of your journey towards a healthier shape and lifestyle, supporting you with total commitment and professionalism as you reach your goals.",
+    "body": "Just 200m from the sea, you’ll find a large weights floor with Technogym, Toorx, Panatta and Sidea equipment, a spacious class studio and an equipped outdoor area. You’ll always be followed by a highly qualified instructor and you’ll never feel alone. We’ll welcome you at our completely renovated reception.",
+    "years": "years of experience",
+    "degrees": "degrees and diplomas",
+    "photoAlt": "Kettlebell training on the weights floor"
+  },
+  "motto": {
+    "title": "Movement is life",
+    "sub": "This is our motto.",
+    "body": "A healthy lifestyle combined with proper training is fundamental to us. The body is a machine, and like any machine it needs the perfect pairing to run:",
+    "a": "Movement",
+    "b": "Healthy eating",
+    "after": "That’s why our centre offers a wide variety of services and activities, and we’ll help you choose them based on the goals we set together."
+  },
+  "courses": {
+    "title": "Classes",
+    "sheet": "Programme",
+    "gym": "Palestra Azzurra · Follonica",
+    "column": "Class",
+    "done": "Available",
+    "more": "Find out more",
+    "items": {
+      "pt": "Personal Training Studio",
+      "weight": "Weight loss and toning",
+      "pregnancy": "Pregnancy exercise",
+      "rehab": "Post-injury rehabilitation",
+      "anamnesis": "Kinesiological assessment",
+      "bodybuilding": "Bodybuilding",
+      "posture": "Postural training",
+      "seniors": "Exercise for seniors"
+    }
+  },
+  "lab": {
+    "born": "The first personal training studio in Follonica",
+    "title": "Azzurra Lab is the answer!!",
+    "role": "Fitness Trainer",
+    "key": "Training consistently and eating right is the key to success!!",
+    "methodA": "<our>OUR</our> method will become <your>YOUR</your> method…",
+    "methodB": "…<your>YOUR</your> goal will become <our>OUR</our> goal.",
+    "services": [
+      "functional circuits",
+      "weight loss",
+      "toning",
+      "bodybuilding training",
+      "postural training",
+      "pregnancy exercise",
+      "360° athletic preparation",
+      "cardio",
+      "bikini posing school",
+      "health coach"
+    ],
+    "galleryTitle": "Training Gallery",
+    "galleryLine": "Every training session matters.",
+    "never": "Never give up…",
+    "visit": "Azzurra LAB …come and see us",
+    "quote": "We cannot expect things to change… if we keep doing the same things",
+    "quoteAuthor": "Albert Einstein",
+    "studioAlt": "The Azzurra Lab studio",
+    "drag": "Scroll"
+  },
+  "gallery": {
+    "kettlebell": "Kettlebell on the gym floor",
+    "floor": "Bodyweight training on the weights floor",
+    "curl": "Dumbbell curl",
+    "core": "Core training",
+    "pushup": "Push-ups on the mat",
+    "bench": "Barbell bench press",
+    "legs": "Leg training",
+    "swing": "Kettlebell swing",
+    "rack": "Dumbbell rack",
+    "squat": "Barbell training",
+    "labRack": "The Azzurra Lab weights room"
+  },
+  "staff": {
+    "title": "The Staff",
+    "lead": "Our staff’s strength is support and professionalism",
+    "team": "Our team is made up of highly specialised professionals.",
+    "p1": "Our team will welcome you and meet your every need: we start with a careful assessment of your situation, then write a personalised programme for you to follow on the floor, always under our supervision.",
+    "p2": "We’ll never leave you alone, and we’ll walk you through the explanation and execution of every single exercise.",
+    "p3": "“YOUR” programme will be reviewed and changed several times a year, so that together we can reach your goals, and of course ours too.",
+    "teamAlt": "Training on the gym floor with our staff",
+    "instagram": "{name} on Instagram",
+    "members": {
+      "bonucci": {
+        "roles": [
+          "Floor instructor",
+          "Personal trainer",
+          "Managing Director"
+        ],
+        "credentials": [
+          "Diploma in Sports Nutrition and Supplementation",
+          "Sports Science undergraduate",
+          "ISSA Level 1"
+        ]
+      },
+      "lgiannoni": {
+        "roles": [
+          "Floor instructor",
+          "Personal trainer"
+        ],
+        "credentials": [
+          "Degree in Sports Science",
+          "Degree in Sport and Physical Activity Management",
+          "Athletic trainer"
+        ]
+      },
+      "camici": {
+        "roles": [
+          "Floor instructor",
+          "Personal trainer"
+        ],
+        "credentials": [
+          "Federal Coach qualification, FIJLKAM Judo.",
+          "League Instructor qualification, UISP Weightlifting and Physical Culture.",
+          "Teaching certification. Basic Motor Activity, CONI Youth Sector.",
+          "3rd dan black belt in Judo",
+          "1st dan black belt in Jujitsu"
+        ]
+      },
+      "mangani": {
+        "roles": [
+          "Floor instructor",
+          "Personal trainer"
+        ],
+        "credentials": [
+          "FIF-ASI-CONI Fitness and Bodybuilding Instructor diploma",
+          "Functional Training instructor",
+          "Degree in Psycho-social Disciplines",
+          "Clinical Psychology undergraduate"
+        ]
+      },
+      "mgiannoni": {
+        "roles": [
+          "Technical director"
+        ],
+        "credentials": [
+          "Degree in Physical Education"
+        ]
+      }
+    }
+  },
+  "hours": {
+    "title": "Hours",
+    "weekdays": "Monday to Friday",
+    "continuous": "Open all day",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "days": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ]
+  },
+  "where": {
+    "title": "Where we are",
+    "address": "via G. Rossini 1 - 58022 Follonica (GR), Italy",
+    "directions": "Directions",
+    "sea": "200m from the sea"
+  },
+  "contact": {
+    "title": "Contact us",
+    "intro": "YOUR goal will become OUR goal.",
+    "addressLabel": "Address",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Call me",
+    "name": "Full name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "required": "required",
+    "consentTitle": "Personal data processing",
+    "consentLabel": "I accept",
+    "consentText": "I authorise the processing of the personal data contained in my curriculum vitae under art. 13 of Italian Legislative Decree 196/2003 and art. 13 of EU Regulation 2016/679 on the protection of natural persons with regard to the processing of personal data.",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "sentTitle": "Message sent!",
+    "sentBody": "We’ll get back to you as soon as possible. Believe in yourself… never give up!",
+    "again": "Write another message",
+    "errors": {
+      "name": "Enter your full name.",
+      "email": "Enter a valid email address, e.g. name@email.com.",
+      "subject": "Enter a subject for your message.",
+      "message": "Write your message (at least 10 characters).",
+      "consent": "To send the message you need to accept the data processing terms.",
+      "server": "We couldn’t send your message. Try again or call us on +39 0566 469433.",
+      "rate": "Too many messages in a short time. Try again in a few minutes."
+    }
+  },
+  "footer": {
+    "born": "The first personal training studio in Follonica",
+    "lab": "Azzurra Lab is the answer!!",
+    "strength": "Our staff’s strength is support and professionalism.",
+    "tagline": "Believe in yourself… never give up!",
+    "rights": "© {year} Palestra Azzurra",
+    "follow": "Follow us"
+  }
+}

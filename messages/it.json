@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "title": "Palestra Azzurra · Follonica",
+    "description": "Palestra Azzurra è un’istituzione del benessere a Follonica. A 200mt dal mare: sala attrezzi Technogym, Toorx, Panatta e Sidea, sala corsi e Azzurra Lab, il primo studio di personal training a Follonica."
+  },
+  "nav": {
+    "home": "Home",
+    "staff": "Staff",
+    "lab": "Personal Training",
+    "hours": "Orario",
+    "contact": "Contatti",
+    "cta": "Scrivici",
+    "call": "Chiama",
+    "menu": "Menu",
+    "close": "Chiudi",
+    "skip": "Vai al contenuto",
+    "language": "English",
+    "languageShort": "EN",
+    "theme": "Cambia tema",
+    "load": "Carico sul bilanciere"
+  },
+  "status": {
+    "open": "Aperto ora",
+    "closed": "Chiuso ora",
+    "closesAt": "chiude alle {time}",
+    "opensAt": "riapre {day} alle {time}",
+    "today": "oggi",
+    "tomorrow": "domani"
+  },
+  "hero": {
+    "title": "Palestra Azzurra",
+    "motto": "Il tuo sogno, il nostro obiettivo",
+    "lead": "Il centro del tuo benessere.",
+    "sub": "Raggiungi gli obiettivi nel modo più efficace.",
+    "coach": "Fatti seguire da un Health Coach!",
+    "more": "Scopri di più",
+    "photoAlt": "Lo staff di Palestra Azzurra in sala"
+  },
+  "equipped": "equipped with :",
+  "about": {
+    "title": "Palestra Azzurra è un’istituzione del benessere a Follonica",
+    "challengeTitle": "La nostra sfida",
+    "challenge": "essere parte attiva del vostro percorso verso una forma e uno stile di vita più sano, accompagnandovi con il massimo dell’impegno e della professionalità alla conquista dei vostri obiettivi.",
+    "body": "Situata a 200mt dal mare, troverete un’ampia sala attrezzi con equipment Technogym, Toorx, Panatta e Sidea. Dispone di un’ampia sala corsi ed un’area esterna attrezzata. Sarai sempre seguito da un istruttore altamente qualificato e non ti sentirai mai solo. Vi accoglieremo nella nostra Reception completamente rinnovata.",
+    "years": "anni di esperienza",
+    "degrees": "lauree e diplomi",
+    "photoAlt": "Allenamento con il kettlebell in sala attrezzi"
+  },
+  "motto": {
+    "title": "Il movimento è vita",
+    "sub": "Questo è il nostro motto.",
+    "body": "L’importanza di uno stile di vita sano ed abbinato ad un corretto allenamento per noi è fondamentale. Il corpo è una macchina e come tale deve essere alimentata con un binomio perfetto:",
+    "a": "Movimento",
+    "b": "Sana alimentazione",
+    "after": "Per questo nel nostro centro troverai una molteplice varietà di servizi ed attività che con il nostro aiuto potrai scegliere in base agli obiettivi che insieme fisseremo."
+  },
+  "courses": {
+    "title": "I Corsi",
+    "sheet": "Scheda",
+    "gym": "Palestra Azzurra · Follonica",
+    "column": "Corso",
+    "done": "Disponibile",
+    "more": "Scopri di più",
+    "items": {
+      "pt": "Personal Training Studio",
+      "weight": "Dimagrimento e tonificazione",
+      "pregnancy": "Ginnastica in gravidanza",
+      "rehab": "Rieducazione post-traumatica",
+      "anamnesis": "Anamnesi chinesiologica",
+      "bodybuilding": "Body building",
+      "posture": "Ginnastica posturale",
+      "seniors": "Ginnastica per anziani"
+    }
+  },
+  "lab": {
+    "born": "Nasce il primo studio di personal training a Follonica",
+    "title": "Azzurra Lab è la soluzione!!",
+    "role": "Fitness Trainer",
+    "key": "Allenarsi con continuità e seguire un corretto stile alimentare è la chiave per il successo!!",
+    "methodA": "Il <our>NOSTRO</our> metodo diventerà il <your>TUO</your> metodo…",
+    "methodB": "…il <your>TUO</your> obiettivo diventerà il <our>NOSTRO</our> obiettivo.",
+    "services": [
+      "circuiti funzionali",
+      "dimagrimento",
+      "tonificazione",
+      "body building training",
+      "ginnastica posturale",
+      "ginnastica in gravidanza",
+      "preparazione atletiche a 360°",
+      "cardio",
+      "scuola di bikini posing",
+      "health coach"
+    ],
+    "galleryTitle": "Training Gallery",
+    "galleryLine": "Ogni seduta di allenamento è importante.",
+    "never": "Mai arrendersi…",
+    "visit": "Azzurra LAB …vieni a trovarci",
+    "quote": "Non possiamo pretendere che le cose cambino… se continuiamo a fare sempre le stesse cose",
+    "quoteAuthor": "Albert Einstein",
+    "studioAlt": "Lo studio Azzurra Lab",
+    "drag": "Scorri"
+  },
+  "gallery": {
+    "kettlebell": "Kettlebell a terra in sala",
+    "floor": "Allenamento a corpo libero in sala attrezzi",
+    "curl": "Curl con manubrio",
+    "core": "Allenamento addominali",
+    "pushup": "Piegamenti sul tappetino",
+    "bench": "Panca piana con bilanciere",
+    "legs": "Allenamento gambe",
+    "swing": "Kettlebell swing",
+    "rack": "Rastrelliera dei manubri",
+    "squat": "Allenamento con bilanciere",
+    "labRack": "La sala pesi di Azzurra Lab"
+  },
+  "staff": {
+    "title": "Lo Staff",
+    "lead": "Il punto di forza del nostro staff è l’assistenza e la professionalità",
+    "team": "Il nostro Team dispone di uno staff altamente specializzato e professionale.",
+    "p1": "Il nostro team ti accoglierà per soddisfare ogni tua esigenza: procederemo con una attenta valutazione del tuo caso per poi procedere alla stesura di un programma personalizzato da svolgere in sala, ovviamente sotto la nostra supervisione.",
+    "p2": "Non ti lasceremo mai solo e ti accompagneremo nella spiegazione e nell’esecuzione di ogni singolo esercizio.",
+    "p3": "Il “TUO” programma sarà revisionato e cambiato più volte durante l’anno, in modo da cercare di raggiungere insieme quelli che saranno i tuoi ed ovviamente i nostri obbiettivi.",
+    "teamAlt": "Allenamento in sala attrezzi con il nostro staff",
+    "instagram": "Instagram di {name}",
+    "members": {
+      "bonucci": {
+        "roles": [
+          "Istruttore di sala",
+          "Personal trainer",
+          "Amministratore Delegato"
+        ],
+        "credentials": [
+          "Diplomato in Alimentazione e Integrazione sportiva",
+          "Laureando in scienze motorie",
+          "Primo livello Issa"
+        ]
+      },
+      "lgiannoni": {
+        "roles": [
+          "Istruttore di sala",
+          "Personal trainer"
+        ],
+        "credentials": [
+          "Laureato In Scienze Motorie",
+          "Laureato in Management dello Sport e delle Attività Motorie",
+          "Preparatore Atletico"
+        ]
+      },
+      "camici": {
+        "roles": [
+          "Istruttore di sala",
+          "Personal trainer"
+        ],
+        "credentials": [
+          "Qualifica di Allenatore Federale FIJLKAM Settore Judo.",
+          "Qualifica di Istruttore di Lega UISP Settore Pesistica e Cultura Fisica.",
+          "Abilitazione all’insegnamento. Attività Motoria di Base CONI Settore Giovanile.",
+          "Cintura Nera 3^ dan di Judo",
+          "Cintura Nera 1^ dan di Jujitsu"
+        ]
+      },
+      "mangani": {
+        "roles": [
+          "Istruttrice di sala",
+          "Personal trainer"
+        ],
+        "credentials": [
+          "Diploma FIF-ASI-CONI di Istruttore di Fitness e Body Building",
+          "Istruttrice di Ginnastica Funzionale",
+          "Laureata in Discipline Psico-sociali",
+          "Laureanda in Psicologia Clinica"
+        ]
+      },
+      "mgiannoni": {
+        "roles": [
+          "Responsabile tecnico"
+        ],
+        "credentials": [
+          "Laureato in Educazione Fisica"
+        ]
+      }
+    }
+  },
+  "hours": {
+    "title": "Orario",
+    "weekdays": "Dal lunedì al venerdì",
+    "continuous": "Orario continuato",
+    "saturday": "Sabato",
+    "sunday": "Domenica",
+    "days": [
+      "domenica",
+      "lunedì",
+      "martedì",
+      "mercoledì",
+      "giovedì",
+      "venerdì",
+      "sabato"
+    ]
+  },
+  "where": {
+    "title": "Dove siamo",
+    "address": "via G. Rossini 1 - 58022 Follonica (GR)",
+    "directions": "Indicazioni",
+    "sea": "200mt dal mare"
+  },
+  "contact": {
+    "title": "Contattaci",
+    "intro": "Il TUO obiettivo diventerà il NOSTRO obiettivo.",
+    "addressLabel": "Indirizzo",
+    "emailLabel": "E-mail",
+    "phoneLabel": "Call me",
+    "name": "Nome e cognome",
+    "email": "Email",
+    "subject": "Soggetto",
+    "message": "Messaggio",
+    "required": "obbligatorio",
+    "consentTitle": "Trattamento dati personali",
+    "consentLabel": "Accetto",
+    "consentText": "Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base all’art. 13 del D. Lgs. 196/2003 e all’art. 13 del Regolamento UE 2016/679 relativo alla protezione delle persone fisiche con riguardo al trattamento dei dati personali.",
+    "submit": "Invia messaggio",
+    "sending": "Invio in corso…",
+    "sentTitle": "Messaggio inviato!",
+    "sentBody": "Ti risponderemo il prima possibile. Credi in te stesso… mai arrendersi!",
+    "again": "Scrivi un altro messaggio",
+    "errors": {
+      "name": "Scrivi nome e cognome.",
+      "email": "Inserisci un indirizzo email valido, es. nome@email.it.",
+      "subject": "Scrivi il soggetto del messaggio.",
+      "message": "Scrivi il messaggio (almeno 10 caratteri).",
+      "consent": "Per inviare il messaggio devi accettare il trattamento dei dati.",
+      "server": "Non siamo riusciti a inviare il messaggio. Riprova o chiamaci al +39 0566 469433.",
+      "rate": "Troppi messaggi in poco tempo. Riprova tra qualche minuto."
+    }
+  },
+  "footer": {
+    "born": "Nasce il primo studio di personal training a Follonica",
+    "lab": "Azzurra Lab è la soluzione!!",
+    "strength": "Il punto di forza del nostro staff è l’assistenza e la professionalità.",
+    "tagline": "Credi in te stesso… mai arrendersi!",
+    "rights": "© {year} Palestra Azzurra",
+    "follow": "Seguici"
+  }
+}
