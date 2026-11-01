@@ -131,7 +131,7 @@ components:
 
 The page is a lifting platform with the member's training card (the scheda) clipped to it. White is the gym floor under strip light; near-black is the rubber platform, laid down as full-bleed rounded bands; azure is the bumper-plate colour and the stamp ink. Every recurring device is a piece of the weight room drawn literally: a knurled steel bar, plates as slabs with the system radius, programme rows ruled on hairlines and ticked with a rubber stamp.
 
-Density is low and heavy. Sections stack as blocks with deep gaps (6rem, 9rem on desktop), headlines are condensed stamped caps at very large sizes, and lists are rows on a sheet rather than tiles. Rank is shown by scale: the two numbers the gym owns (17 years, 24 degrees) are stamped huge on rolling plate faces, never set in a stat band. State is shown by a mark, not a hue change: a stamped tick means done, a folded azure tab means "you are here".
+Density is low and heavy. Sections stack as blocks with deep gaps (6rem, 9rem on desktop), headlines are condensed stamped caps at very large sizes, and lists are rows on a sheet rather than tiles. Rank is shown by scale: the two numbers the gym owns (17 years, 24 degrees) are stamped huge on rolling plate faces, never set in a stat band. State is shown by a mark, not a hue change: a stamped tick means done, the racked bar of a Smith machine means "you are here".
 
 Motion is reserved for authored moments that belong to the world: plates slamming onto the hero bar and the press, the header rail loading one plate per section with a running kg tally, plate faces rolling with scroll, the balance bar settling level, stamps landing on scheda rows. Section content otherwise renders static and visible; there is no generic fade-up entrance. Under reduced motion everything is shown in its end state.
 
@@ -147,7 +147,7 @@ Motion is reserved for authored moments that belong to the world: plates slammin
 One loud accent on a black-and-white floor: azure does the work of plates, stamps and calls to action; everything readable is ink or white.
 
 ### Primary
-- **Bumper Azure** (azure-plate, about #1e9df1): primary buttons, the 20/25 kg plates, the large plate face, stamp ticks, the scheda flag, role chips, the "today" tag, focus and selection, the scrollbar thumb. On the rubber platform it is also a text colour (6.3:1 against platform ink). Against white it measures 2.9:1, so on white grounds it is a fill and mark colour, not a reading colour.
+- **Bumper Azure** (azure-plate, about #1e9df1): primary buttons, the 20/25 kg plates, the large plate face, stamp ticks, the Smith track's plates, role chips, the "today" tag, focus and selection, the scrollbar thumb. On the rubber platform it is also a text colour (6.3:1 against platform ink). Against white it measures 2.9:1, so on white grounds it is a fill and mark colour, not a reading colour.
 
 ### Neutral
 - **Platform Ink** (platform-ink, about #0f1419): all body text and display type on white; the fill of every platform band (hero equipment strip, method, Azzurra Lab, hours, footer, mobile menu); the printed header of the scheda; the 15 kg plate.
@@ -252,8 +252,8 @@ A bumper plate seen face-on, azure or ink, with the label set around the rim in 
 ### Stamp
 An azure rubber-stamp tick: double ring and check with a displaced, worn ink edge. It lands once in view (from 2.2x scale, rotated, settling at -7 to -13 degrees) on a stiff spring. The form's sent state uses a large version of the same gesture.
 
-### Scheda Flag
-A narrow azure tab, folded at the top corner, that slides between course rows to mark the row crossing the middle of the viewport.
+### Smith Track
+The course scheda's position marker, drawn as a Smith machine (multipower). A chrome guide rod runs down each edge of the card between two steel-dark mounts. A knurled bar spans the card between two ink carriages, each with its hook turned inward and an azure plate outside the rod. The bar is tied to the scroll: it racks along the foot of each row as that row crosses the middle of the viewport, slides linearly between rows, and the row it frames carries a 7% azure light. The light is drawn under the rows; the rods, bar and carriages over them, so a hovered row never hides the machine.
 
 ### Open Status
 A live open/closed line computed from the real hours in Europe/Rome time: a 10px dot (azure and pinging when open, steel dark when closed), semibold state, and the next change in regular weight.
@@ -267,7 +267,7 @@ Rubber-grain ink slab with white text, platform-muted secondary text and platfor
 - **Do** set every heading in condensed 800 caps (wdth 75) at line-height 0.88.
 - **Do** keep the 1.3rem radius on every slab (photos, cards, plates, header) and use full pills for controls.
 - **Do** present lists as rows on a scheda: ink top rule, sheet-line hairlines, a number column and a mark column.
-- **Do** show completion with a stamp and position with the folded flag, not with a colour change alone.
+- **Do** show completion with a stamp and position with the Smith track's racked bar, not with a colour change alone.
 - **Do** alternate white ground with rubber platform bands to pace the page.
 - **Do** use tabular numerals for hours, phone numbers, counters and the kg tally.
 - **Do** give motion physical causes (plates landing, a bar settling, a stamp hitting paper) and show the end state under reduced motion.

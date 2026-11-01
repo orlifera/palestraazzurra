@@ -2,8 +2,10 @@ import { Facebook01Icon, InstagramIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
+import { Fragment } from "react"
 
 import { contact } from "@/data/site"
+import { hourRows } from "@/lib/hours"
 
 export function Footer() {
   const t = useTranslations("footer")
@@ -29,10 +31,12 @@ export function Footer() {
           </div>
           <div className="text-sm leading-relaxed">
             <p className="font-stamp mb-3">{h("title")}</p>
-            <p>{h("weekdays")}: <span className="tabular">7:30–21:30</span></p>
-            <p className="text-platform-muted">{h("continuous")}</p>
-            <p>{h("saturday")}: <span className="tabular">9:00–17:00</span></p>
-            <p>{h("sunday")}: <span className="tabular">8:30–12:30</span></p>
+            {hourRows.map((r) => (
+              <Fragment key={r.key}>
+                <p>{h(r.key)}: <span className="tabular">{r.time.join("–")}</span></p>
+                {r.note ? <p className="text-platform-muted">{h("continuous")}</p> : null}
+              </Fragment>
+            ))}
           </div>
           <div className="text-sm leading-relaxed">
             <p className="font-stamp mb-3">{nav("contact")}</p>

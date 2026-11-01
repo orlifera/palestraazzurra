@@ -310,9 +310,9 @@
         "purpose": "Balance bar settling level from -7deg."
       },
       {
-        "name": "spring-flag",
-        "value": "stiffness 420, damping 32",
-        "purpose": "Scheda flag sliding between rows."
+        "name": "smith-track",
+        "value": "scroll-linked, linear between row centres",
+        "purpose": "Smith bar racking along the course row crossing mid-viewport."
       },
       {
         "name": "plate-roll",
@@ -455,7 +455,7 @@
       "Do set every heading in condensed 800 caps (wdth 75) at line-height 0.88.",
       "Do keep the 1.3rem radius on every slab (photos, cards, plates, header) and use full pills for controls.",
       "Do present lists as rows on a scheda: ink top rule, sheet-line hairlines, a number column and a mark column.",
-      "Do show completion with a stamp and position with the folded flag, not with a colour change alone.",
+      "Do show completion with a stamp and position with the Smith track's racked bar, not with a colour change alone.",
       "Do alternate white ground with rubber platform bands to pace the page.",
       "Do use tabular numerals for hours, phone numbers, counters and the kg tally.",
       "Do give motion physical causes (plates landing, a bar settling, a stamp hitting paper) and show the end state under reduced motion."

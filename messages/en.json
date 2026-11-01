@@ -25,7 +25,10 @@
     "closesAt": "closes at {time}",
     "opensAt": "reopens {day} at {time}",
     "today": "today",
-    "tomorrow": "tomorrow"
+    "tomorrow": "tomorrow",
+    "opensOn": "reopens on {date} at {time}",
+    "closedOn": "Closed on {date}",
+    "closedFromTo": "Closed from {from} to {to}"
   },
   "hero": {
     "title": "Palestra Azzurra",
@@ -70,7 +73,9 @@
       "bodybuilding": "Bodybuilding",
       "posture": "Postural training",
       "seniors": "Exercise for seniors"
-    }
+    },
+    "ask": "Ask about it",
+    "askSubject": "Information: {course}"
   },
   "lab": {
     "born": "The first personal training studio in Follonica",
@@ -239,5 +244,138 @@
     "tagline": "Believe in yourself… never give up!",
     "rights": "© {year} Palestra Azzurra",
     "follow": "Follow us"
+  },
+  "builder": {
+    "title": "Your scheda",
+    "lead": "Tick your goals: we'll write the rest together.",
+    "sheet": "Scheda",
+    "draft": "Draft",
+    "goalsLabel": "Goals",
+    "goals": {
+      "weight": "Lose weight and tone up",
+      "bodybuilding": "Build muscle",
+      "posture": "Improve my posture",
+      "rehab": "Recover from an injury",
+      "pregnancy": "Train during pregnancy",
+      "seniors": "Stay fit as I get older",
+      "pt": "Train with a personal trainer"
+    },
+    "daysLabel": "Times a week",
+    "levelLabel": "Experience",
+    "levels": {
+      "new": "Never trained",
+      "some": "On and off",
+      "regular": "I already train"
+    },
+    "send": "Send my scheda",
+    "empty": "Tick at least one goal.",
+    "subject": "My scheda",
+    "messageGoals": "Goals: {list}",
+    "messageDays": "Times a week: {days}",
+    "messageLevel": "Experience: {level}",
+    "messageEnd": "I'd like to know how to start."
+  },
+  "finder": {
+    "title": "Where do I start?",
+    "lead": "Three questions and we'll tell you which course suits you.",
+    "step": "Question {n} of 3",
+    "q1": "What do you want to achieve?",
+    "q1a": {
+      "weight": "Lose weight and tone up",
+      "bodybuilding": "Put on muscle",
+      "posture": "Move better, without pain",
+      "rehab": "Recover from an injury"
+    },
+    "q2": "Does one of these apply to you?",
+    "q2a": {
+      "pregnancy": "I'm pregnant",
+      "seniors": "I'm over 65",
+      "none": "Neither"
+    },
+    "q3": "How do you like to train?",
+    "q3a": {
+      "floor": "On the floor, with the staff",
+      "pt": "One to one, with a personal trainer"
+    },
+    "result": "This is for you",
+    "also": "And to start on the right foot",
+    "restart": "Start over",
+    "back": "Back"
+  },
+  "planner": {
+    "title": "Plan your visit",
+    "day": "Day",
+    "time": "Time",
+    "closedDay": "We're closed that day.",
+    "closure": "We're closed that day · {note}",
+    "ok": "We're open: we close at {time}.",
+    "late": "We close at {time}: you'd only have {minutes} minutes.",
+    "add": "Add to calendar",
+    "event": "Visit to Palestra Azzurra"
+  },
+  "tools": {
+    "title": "For lifters",
+    "lead": "Two tools to keep in your pocket on the floor.",
+    "plates": {
+      "title": "Load the bar",
+      "target": "Total weight",
+      "bar": "Bar",
+      "perSide": "Per side",
+      "loaded": "{kg} kg loaded",
+      "closest": "As close as it gets: {kg} kg",
+      "full": "The bar is full: it takes up to {kg} kg.",
+      "barOnly": "Just the bar.",
+      "barbell": "Bar loaded with {plates}"
+    },
+    "orm": {
+      "title": "Your one-rep max",
+      "weight": "Weight lifted",
+      "reps": "Reps",
+      "result": "Estimated one-rep max",
+      "note": "Epley estimate, reliable up to about 10 reps. Rep counts are a guide.",
+      "pct": "%",
+      "load": "Load",
+      "repsCol": "Reps"
+    }
+  },
+  "tour": {
+    "title": "Take a tour",
+    "lead": "Tap an area of the gym.",
+    "zones": {
+      "entrance": {
+        "name": "Entrance",
+        "body": "Via G. Rossini 1, Follonica. This is where we welcome you."
+      },
+      "weights": {
+        "name": "Weights room",
+        "body": "Equipment by Technogym, Toorx, Panatta and Sidea."
+      },
+      "dumbbells": {
+        "name": "Dumbbells",
+        "body": "Dumbbells and kettlebells for free-weight work."
+      },
+      "classes": {
+        "name": "Class room",
+        "body": "The space for the courses."
+      },
+      "lab": {
+        "name": "Azzurra Lab",
+        "body": "The first personal training studio in Follonica."
+      },
+      "sea": {
+        "name": "The sea",
+        "body": "200 m from the gym's door."
+      }
+    }
+  },
+  "coaches": {
+    "title": "Who coaches what?",
+    "all": "Everyone",
+    "none": "For this course, ask us who'll follow you.",
+    "ask": "Ask about it"
+  },
+  "barbell": {
+    "load": "Load the bar",
+    "hint": "Tap the bar · {kg} kg"
   }
 }

@@ -4,7 +4,7 @@ import { Call02Icon, Location01Icon, Mail01Icon, Tick02Icon } from "@hugeicons/c
 import { HugeiconsIcon } from "@hugeicons/react"
 import { AnimatePresence, motion } from "motion/react"
 import { useLocale, useTranslations } from "next-intl"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { toast } from "sonner"
 
 import { Reveal } from "@/components/motion/reveal"
@@ -24,6 +24,15 @@ const ORDER: ContactField[] = ["name", "email", "subject", "message", "consent"]
 const inputCls =
   "h-12 rounded-xl border-2 border-sheet-line bg-background px-4 text-base md:text-base focus-visible:border-primary focus-visible:ring-primary/25"
 
+const ASK = "contact:ask"
+
+type Ask = { subject: string; message?: string }
+
+/** Fills in the form from elsewhere on the page: a course's "Ask about it", the scheda builder. */
+export function askAbout(subject: string, message?: string) {
+  window.dispatchEvent(new CustomEvent<Ask>(ASK, { detail: { subject, message } }))
+}
+
 export function Contact() {
   const t = useTranslations("contact")
   const locale = useLocale()
@@ -31,6 +40,17 @@ export function Contact() {
   const [errors, setErrors] = useState<Partial<Record<ContactField, string>>>({})
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle")
   const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    const onAsk = (e: Event) => {
+      const { subject, message } = (e as CustomEvent<Ask>).detail
+      setValues((v) => ({ ...v, subject, message: message ?? v.message }))
+      setErrors((e) => ({ ...e, subject: undefined, message: message ? undefined : e.message }))
+      setStatus("idle")
+    }
+    window.addEventListener(ASK, onAsk)
+    return () => window.removeEventListener(ASK, onAsk)
+  }, [])
 
   const set = <K extends keyof Values>(key: K, value: Values[K]) => {
     setValues((v) => ({ ...v, [key]: value }))

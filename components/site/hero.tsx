@@ -8,42 +8,66 @@ import { useTranslations } from "next-intl"
 import { useEffect, useState } from "react"
 
 import { Barbell } from "@/components/motion/barbell"
+import { ClosureNotice } from "@/components/site/closure-notice"
 import { Equipment } from "@/components/site/equipment"
 import { OpenStatus } from "@/components/site/open-status"
 import { buttonVariants } from "@/components/ui/button"
 import { contact } from "@/data/site"
 import { cn } from "@/lib/utils"
 
-const HERO_PLATES = [20, 15, 10, 5] as const
+/** What a tap on the hero bar loads next, one side, collar outwards: back to the first after the last. */
+const LOADS = [
+  [20, 15, 10, 5],
+  [25, 20, 15, 10, 5],
+  [25, 25, 20, 15, 10, 5],
+] as const
+const sideKg = (plates: readonly number[]) => plates.reduce((a, b) => a + b, 0)
 
+/** Sent when the hero bar is reloaded: the header's tally counts the extra kg. */
+export const BAR_EVENT = "azzurra:bar"
+
+/** Plates go on one by one, then the bar presses up; each tap strips it and loads the next weight. */
 function useLoadSequence() {
+  const [load, setLoad] = useState(0)
   const [loaded, setLoaded] = useState(0)
   const [lifted, setLifted] = useState(false)
+  const plates = LOADS[load]
 
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = []
-    HERO_PLATES.forEach((_, i) => {
+    plates.forEach((_, i) => {
       timers.push(setTimeout(() => setLoaded(i + 1), 400 + i * 220))
     })
     timers.push(
-      setTimeout(() => setLifted(true), 400 + HERO_PLATES.length * 220 + 450)
+      setTimeout(() => setLifted(true), 400 + plates.length * 220 + 450)
+    )
+    window.dispatchEvent(
+      new CustomEvent<number>(BAR_EVENT, { detail: 2 * (sideKg(plates) - sideKg(LOADS[0])) })
     )
     return () => timers.forEach(clearTimeout)
-  }, [])
+  }, [plates])
 
-  return { loaded, lifted }
+  // Strip the bar, then the effect loads the next weight onto it.
+  const next = () => {
+    setLoaded(0)
+    setLifted(false)
+    setLoad((l) => (l + 1) % LOADS.length)
+  }
+  return { plates, loaded, lifted, next, kg: 20 + 2 * sideKg(plates) }
 }
 
 export function Hero() {
   const t = useTranslations("hero")
   const nav = useTranslations("nav")
-  const { loaded, lifted } = useLoadSequence()
+  const b = useTranslations("barbell")
+  const { plates, loaded, lifted, next, kg } = useLoadSequence()
 
   return (
     <section id="top" className="relative flex flex-col overflow-x-clip pt-24 lg:h-svh lg:min-h-[44rem] lg:pt-22">
       <div className="mx-auto grid w-full max-w-[90rem] gap-10 px-4 sm:px-6 lg:mb-8 lg:min-h-0 lg:flex-1 lg:grid-cols-[1.4fr_1fr] lg:gap-14 lg:px-10">
         <div className="flex min-w-0 flex-col">
-          <h1 className="font-display relative text-[clamp(4.6rem,min(12vw,15svh),12rem)]">
+          {/* Named outright: the bar between the words is a button. */}
+          <h1 aria-label="Palestra Azzurra" className="font-display relative text-[clamp(4.6rem,min(12vw,15svh),12rem)]">
             <motion.span
               className="block"
               animate={{ y: lifted ? -10 : 0 }}
@@ -51,13 +75,20 @@ export function Hero() {
             >
               Palestra
             </motion.span>
-            <span className="-mx-[6%] my-[0.04em] block w-[112%] text-[1rem] sm:-mr-[20%] sm:w-[126%]">
-              <Barbell
-                plates={HERO_PLATES}
-                loaded={loaded}
-                lifted={lifted}
-              />
-            </span>
+            <button
+              type="button"
+              onClick={next}
+              aria-label={b("hint", { kg })}
+              className="group -mx-[6%] my-[0.04em] block w-[112%] cursor-pointer rounded-[var(--radius)] text-[1rem] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring sm:-mr-[20%] sm:w-[126%]"
+            >
+              <Barbell plates={plates} loaded={loaded} lifted={lifted} />
+              <span
+                aria-hidden
+                className="font-stamp mt-1 block text-center text-xs tracking-[0.06em] text-foreground/50 normal-case transition-colors group-hover:text-primary"
+              >
+                {b("hint", { kg })}
+              </span>
+            </button>
             <span className="-mt-[0.1em] block text-primary">Azzurra</span>
           </h1>
 
@@ -114,6 +145,7 @@ export function Hero() {
             </a>
           </div>
           <OpenStatus className="hero-rise mt-4" />
+          <ClosureNotice className="mt-2" />
         </div>
 
         <div className="relative lg:pt-2 lg:pb-2">

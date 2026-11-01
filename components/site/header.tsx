@@ -16,6 +16,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { RailBarbell } from "@/components/motion/barbell"
+import { BAR_EVENT } from "@/components/site/hero"
 import { BAR_KG, contact, sections } from "@/data/site"
 import { Link } from "@/i18n/navigation"
 import { cn } from "@/lib/utils"
@@ -76,7 +77,14 @@ export function Header() {
   const { resolvedTheme, setTheme } = useTheme()
   const loaded = useLoadedSections()
   const [open, setOpen] = useState(false)
-  const kg = BAR_KG + 2 * PLATES.slice(0, loaded).reduce((a, b) => a + b, 0)
+  // Plates the visitor loaded on the hero bar ride on top of the sections passed.
+  const [extra, setExtra] = useState(0)
+  useEffect(() => {
+    const onBar = (e: Event) => setExtra((e as CustomEvent<number>).detail)
+    window.addEventListener(BAR_EVENT, onBar)
+    return () => window.removeEventListener(BAR_EVENT, onBar)
+  }, [])
+  const kg = BAR_KG + 2 * PLATES.slice(0, loaded).reduce((a, b) => a + b, 0) + extra
 
   const links = [
     { href: "#top", label: t("home") },

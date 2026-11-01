@@ -25,7 +25,10 @@
     "closesAt": "chiude alle {time}",
     "opensAt": "riapre {day} alle {time}",
     "today": "oggi",
-    "tomorrow": "domani"
+    "tomorrow": "domani",
+    "opensOn": "riapre il {date} alle {time}",
+    "closedOn": "Chiusi il {date}",
+    "closedFromTo": "Chiusi dal {from} al {to}"
   },
   "hero": {
     "title": "Palestra Azzurra",
@@ -70,7 +73,9 @@
       "bodybuilding": "Body building",
       "posture": "Ginnastica posturale",
       "seniors": "Ginnastica per anziani"
-    }
+    },
+    "ask": "Chiedi info",
+    "askSubject": "Informazioni: {course}"
   },
   "lab": {
     "born": "Nasce il primo studio di personal training a Follonica",
@@ -239,5 +244,138 @@
     "tagline": "Credi in te stesso… mai arrendersi!",
     "rights": "© {year} Palestra Azzurra",
     "follow": "Seguici"
+  },
+  "builder": {
+    "title": "La tua scheda",
+    "lead": "Segna i tuoi obiettivi: il resto lo scriviamo insieme.",
+    "sheet": "Scheda",
+    "draft": "Bozza",
+    "goalsLabel": "Obiettivi",
+    "goals": {
+      "weight": "Perdere peso e tonificare",
+      "bodybuilding": "Aumentare la massa muscolare",
+      "posture": "Migliorare la postura",
+      "rehab": "Recuperare da un infortunio",
+      "pregnancy": "Allenarmi in gravidanza",
+      "seniors": "Restare in forma con gli anni",
+      "pt": "Allenarmi con un personal trainer"
+    },
+    "daysLabel": "Volte a settimana",
+    "levelLabel": "Esperienza",
+    "levels": {
+      "new": "Mai allenato",
+      "some": "Ogni tanto",
+      "regular": "Mi alleno già"
+    },
+    "send": "Manda la scheda",
+    "empty": "Segna almeno un obiettivo.",
+    "subject": "La mia scheda",
+    "messageGoals": "Obiettivi: {list}",
+    "messageDays": "Volte a settimana: {days}",
+    "messageLevel": "Esperienza: {level}",
+    "messageEnd": "Vorrei sapere come iniziare."
+  },
+  "finder": {
+    "title": "Da dove parto?",
+    "lead": "Tre domande e ti diciamo quale corso fa per te.",
+    "step": "Domanda {n} di 3",
+    "q1": "Cosa vuoi ottenere?",
+    "q1a": {
+      "weight": "Perdere peso e tonificare",
+      "bodybuilding": "Mettere su muscoli",
+      "posture": "Muovermi meglio, senza dolori",
+      "rehab": "Recuperare da un infortunio"
+    },
+    "q2": "Ti riconosci in una di queste?",
+    "q2a": {
+      "pregnancy": "Sono in gravidanza",
+      "seniors": "Ho superato i 65 anni",
+      "none": "Nessuna delle due"
+    },
+    "q3": "Come preferisci allenarti?",
+    "q3a": {
+      "floor": "In sala, seguito dallo staff",
+      "pt": "Uno a uno, con un personal trainer"
+    },
+    "result": "Fa per te",
+    "also": "E per partire col piede giusto",
+    "restart": "Ricomincia",
+    "back": "Indietro"
+  },
+  "planner": {
+    "title": "Pianifica la visita",
+    "day": "Giorno",
+    "time": "Ora",
+    "closedDay": "Questo giorno siamo chiusi.",
+    "closure": "Questo giorno siamo chiusi · {note}",
+    "ok": "Siamo aperti: chiudiamo alle {time}.",
+    "late": "Chiudiamo alle {time}: avrai solo {minutes} minuti.",
+    "add": "Aggiungi al calendario",
+    "event": "Visita a Palestra Azzurra"
+  },
+  "tools": {
+    "title": "Per chi solleva",
+    "lead": "Due strumenti da tenere in tasca, in sala.",
+    "plates": {
+      "title": "Carica il bilanciere",
+      "target": "Peso totale",
+      "bar": "Bilanciere",
+      "perSide": "Per lato",
+      "loaded": "Caricati {kg} kg",
+      "closest": "Il più vicino possibile: {kg} kg",
+      "full": "Il bilanciere è pieno: arriviamo a {kg} kg.",
+      "barOnly": "Solo il bilanciere.",
+      "barbell": "Bilanciere caricato con {plates}"
+    },
+    "orm": {
+      "title": "Il tuo massimale",
+      "weight": "Peso sollevato",
+      "reps": "Ripetizioni",
+      "result": "Massimale stimato",
+      "note": "Stima con la formula di Epley, affidabile fino a circa 10 ripetizioni. Le ripetizioni sono indicative.",
+      "pct": "%",
+      "load": "Carico",
+      "repsCol": "Ripetizioni"
+    }
+  },
+  "tour": {
+    "title": "Fai un giro",
+    "lead": "Tocca una zona della palestra.",
+    "zones": {
+      "entrance": {
+        "name": "Ingresso",
+        "body": "Via G. Rossini 1, a Follonica. Ti accogliamo qui."
+      },
+      "weights": {
+        "name": "Sala attrezzi",
+        "body": "Attrezzature Technogym, Toorx, Panatta e Sidea."
+      },
+      "dumbbells": {
+        "name": "Manubri",
+        "body": "Manubri e kettlebell per il lavoro con i pesi liberi."
+      },
+      "classes": {
+        "name": "Sala corsi",
+        "body": "Lo spazio per i corsi."
+      },
+      "lab": {
+        "name": "Azzurra Lab",
+        "body": "Il primo studio di personal training a Follonica."
+      },
+      "sea": {
+        "name": "Il mare",
+        "body": "A 200 m dalla porta della palestra."
+      }
+    }
+  },
+  "coaches": {
+    "title": "Chi ti segue?",
+    "all": "Tutti",
+    "none": "Per questo corso te lo diciamo noi.",
+    "ask": "Chiedi info"
+  },
+  "barbell": {
+    "load": "Carica il bilanciere",
+    "hint": "Tocca il bilanciere · {kg} kg"
   }
 }

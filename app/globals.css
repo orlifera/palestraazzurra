@@ -67,6 +67,8 @@
 
   /* World tokens, derived from the palette above. */
   --platform: oklch(0.1884 0.0128 248.5103);
+  /* How much platform the glass bands keep: more over the white page, for contrast. */
+  --rubber-tint: 90%;
   --platform-foreground: oklch(1 0 0);
   --platform-muted: oklch(0.78 0.012 248.5);
   --platform-line: oklch(0.3 0.014 248.5);
@@ -137,6 +139,7 @@
   --shadow-color: rgba(29, 161, 242, 0.25);
 
   --platform: oklch(0.2097 0.008 274.5332);
+  --rubber-tint: 78%;
   --platform-foreground: oklch(0.9328 0.0025 228.7857);
   --platform-muted: oklch(0.72 0.008 248.5);
   --platform-line: oklch(0.32 0.01 260);
@@ -287,13 +290,43 @@
 }
 
 /* Rubber platform grain. */
+/* The filled bands as liquid glass: the platform tint over the plan behind,
+   blurred and saturated, a sheen falling from the top edge and a lit rim. The
+   rubber's grain stays on the surface. */
 @utility rubber {
-  background-color: var(--platform);
-  background-image: radial-gradient(
-    oklch(1 0 0 / 0.045) 0.6px,
-    transparent 0.7px
-  );
-  background-size: 5px 5px;
+  background-color: color-mix(in oklab, var(--platform) var(--rubber-tint), transparent);
+  background-image:
+    linear-gradient(
+      172deg,
+      oklch(1 0 0 / 0.11),
+      oklch(1 0 0 / 0.02) 18rem,
+      transparent 40%,
+      transparent 85%,
+      oklch(1 0 0 / 0.04)
+    ),
+    radial-gradient(oklch(1 0 0 / 0.045) 0.6px, transparent 0.7px);
+  background-size:
+    100% 100%,
+    5px 5px;
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  backdrop-filter: blur(22px) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 0.24),
+    inset 1px 0 0 oklch(1 0 0 / 0.07),
+    inset -1px 0 0 oklch(1 0 0 / 0.07),
+    inset 0 -1px 0 oklch(1 0 0 / 0.05);
+}
+
+/* Solid again where glass can't be drawn or isn't wanted. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .rubber {
+    background-color: var(--platform);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .rubber {
+    background-color: var(--platform);
+  }
 }
 
 /* Lenis drives the scroll; native smooth scrolling would fight it. */

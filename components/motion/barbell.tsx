@@ -21,11 +21,17 @@ const PLATE: Record<number, { w: number; h: number; tone: string; ink: string }>
   2.5: { w: 14, h: 94, tone: "var(--steel)", ink: "var(--foreground)" },
 }
 
+/** The plates the bar can carry, heaviest first. */
+export const PLATE_KG = [25, 20, 15, 10, 5, 2.5] as const
+
 const VIEW_W = 1200
 const CY = 110
 const COLLAR_L = 330
 const COLLAR_R = VIEW_W - COLLAR_L
 const SLEEVE_END = 70
+/** Whether a side's plates, collar outwards, fit on the sleeve as `Side` lays them out. */
+export const fitsSleeve = (plates: readonly number[]) =>
+  16 + plates.reduce((sum, k) => sum + (PLATE[k] ?? PLATE[5]).w + 3, 0) <= COLLAR_L - SLEEVE_END
 
 type BarbellProps = {
   /** Plate weights for one side, collar outwards. */

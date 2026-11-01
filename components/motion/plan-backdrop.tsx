@@ -2,7 +2,9 @@
 
 import {
   motion,
+  useAnimationFrame,
   useMotionTemplate,
+  useMotionValue,
   useReducedMotionConfig,
   useScroll,
   useTransform,
@@ -12,7 +14,7 @@ import { useEffect, useRef, useState } from "react"
 
 import { GymPlan, PLAN_VIEW, type Station } from "@/components/iso/gym-plan"
 import { iso, PALETTES, S, SPREAD } from "@/components/iso/kit"
-import { SPANS, workout } from "@/components/iso/workout"
+import { SCRIPT_COST, SPANS, workout } from "@/components/iso/workout"
 
 const [VIEW_X, VIEW_Y, VIEW_W, VIEW_H] = PLAN_VIEW.split(" ").map(Number)
 
@@ -29,6 +31,35 @@ const LIFTS: { id: string; station: Station; screen: [number, number] }[] = [
 ]
 /** Where the camera holds the member while they walk. */
 const WALKING: [number, number] = [0.5, 0.55]
+
+/**
+ * The member's own pace, in script cost per second (walking units, or a
+ * movement's share): the scroll sets where they're headed, never how fast
+ * they go, so a flick of the wheel doesn't make them sprint or pump reps.
+ * Lifts keep a steady tempo; the walks, mostly under the rubber bands, a
+ * brisk one.
+ */
+const LIFT_PACE = 2
+const WALK_PACE = 3.5
+/** Further behind than this (a jump through the nav), they're put there. */
+const MAX_GAP = 24
+
+/** `target`, followed at the member's pace. */
+function usePaced(target: MotionValue<number>) {
+  const paced = useMotionValue(target.get())
+  useAnimationFrame((_, delta) => {
+    const to = target.get()
+    const from = paced.get()
+    const gap = (to - from) * SCRIPT_COST
+    if (gap === 0) return
+    // A long frame (a background tab) doesn't turn into a leap.
+    const dt = Math.min(delta, 100) / 1000
+    const step = dt * (workout(from).walking ? WALK_PACE : LIFT_PACE)
+    if (Math.abs(gap) <= step || Math.abs(gap) > MAX_GAP) paced.set(to)
+    else paced.set(from + (Math.sign(gap) * step) / SCRIPT_COST)
+  })
+  return paced
+}
 
 /** The member's point on screen at a point of the script: each lift's, eased between them on the walks. */
 const SCREEN = (() => {
@@ -138,7 +169,8 @@ function LiftedBar({
  * Each lift is pinned to a white section (About, Courses, Staff), where
  * the plan shows; the walks between run under the rubber bands. The plan
  * glides under the screen to keep them in view, and holds while they lift,
- * so the reps play out under the scroll. The rubber bands cover it as they
+ * so the reps play out under the scroll, at the member's own pace however
+ * fast the page goes. The rubber bands cover it as they
  * pass; it shows through the white ground.
  *
  * Under reduced motion the plan stands still, top in view, with no member.
@@ -193,7 +225,8 @@ export function PlanBackdrop() {
     }
   }, [])
 
-  const progress = useTransform(scrollY, stops.scroll, stops.script)
+  const target = useTransform(scrollY, stops.scroll, stops.script)
+  const progress = usePaced(target)
   // The camera: the member held at their point of the screen, the plan
   // never pulled past its own edges.
   const k = box.w / VIEW_W

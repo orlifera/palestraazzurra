@@ -10,6 +10,7 @@ import { MotionProvider } from "@/components/motion/motion-provider"
 import { SmoothScroll } from "@/components/motion/smooth-scroll"
 import { Toaster } from "@/components/ui/sonner"
 import { routing } from "@/i18n/routing"
+import { SITE_URL } from "@/lib/json-ld"
 import { cn } from "@/lib/utils"
 
 const openSans = Open_Sans({
@@ -30,9 +31,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta" })
 
   return {
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.palestraazzurra.it"
-    ),
+    metadataBase: new URL(SITE_URL),
     title: t("title"),
     description: t("description"),
     alternates: {

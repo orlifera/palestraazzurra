@@ -7,16 +7,12 @@ import { useSyncExternalStore } from "react"
 
 import { IsoSeaScene } from "@/components/iso/iso-sea-scene"
 import { Reveal } from "@/components/motion/reveal"
+import { ClosureNotice } from "@/components/site/closure-notice"
 import { OpenStatus } from "@/components/site/open-status"
+import { VisitPlanner } from "@/components/site/visit-planner"
 import { contact } from "@/data/site"
-import { romeWeekday } from "@/lib/hours"
+import { hourRows, romeWeekday } from "@/lib/hours"
 import { cn } from "@/lib/utils"
-
-const ROWS = [
-  { key: "weekdays", days: [1, 2, 3, 4, 5], time: ["7:30", "21:30"], note: true },
-  { key: "saturday", days: [6], time: ["9:00", "17:00"] },
-  { key: "sunday", days: [0], time: ["8:30", "12:30"] },
-] as const
 
 const noop = () => () => {}
 
@@ -41,8 +37,9 @@ export function Visit() {
             </h2>
             <OpenStatus className="mb-3 text-base" />
           </Reveal>
+          <ClosureNotice className="mt-6" />
           <dl className="mt-10 border-t border-platform-line">
-            {ROWS.map((r, i) => {
+            {hourRows.map((r, i) => {
               const active = today !== null && (r.days as readonly number[]).includes(today)
               return (
                 <Reveal
@@ -60,7 +57,7 @@ export function Visit() {
                         {s("today")}
                       </span>
                     ) : null}
-                    {"note" in r ? (
+                    {r.note ? (
                       <span className="block text-sm font-semibold tracking-normal text-platform-muted normal-case">
                         {t("continuous")}
                       </span>
@@ -115,6 +112,9 @@ export function Visit() {
             <HugeiconsIcon icon={Navigation03Icon} className="size-5" />
             {w("directions")}
           </a>
+          <div className="mt-12">
+            <VisitPlanner />
+          </div>
         </Reveal>
       </div>
     </section>

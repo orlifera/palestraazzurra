@@ -202,6 +202,8 @@ const ENDS = KEYS.reduce<number[]>(
   []
 )
 const TOTAL = ENDS[ENDS.length - 1]
+/** The whole script's cost: walking units, plus what each movement is given. */
+export const SCRIPT_COST = TOTAL
 
 /**
  * Where each station's lifting starts and ends, as fractions of the script:
@@ -241,6 +243,8 @@ export type WorkoutFrame = {
   /** The stride, -1 to 1: positive puts the +side foot forward. */
   swing: number
   bars: Bars
+  /** Walking between stations, rather than lifting. */
+  walking: boolean
 }
 
 export function workout(p: number): WorkoutFrame {
@@ -269,6 +273,7 @@ export function workout(p: number): WorkoutFrame {
       grip: HANDS_DOWN,
       swing: Math.sin((walked / 0.55) * Math.PI) * taper,
       bars: REST,
+      walking: true,
     }
   }
 
@@ -286,5 +291,6 @@ export function workout(p: number): WorkoutFrame {
     grip: lerp(a.grip, b.grip, e),
     swing: 0,
     bars,
+    walking: false,
   }
 }

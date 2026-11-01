@@ -67,6 +67,11 @@ const dumbbell = (z: number, x: number, y: number, h: number) =>
   bar(z, x, y, h, { half: 0.24, collar: 0.1, load: ["db", "db"], d: 0.02 })
 const slab = (z: number, depth = ZONE) => at(z)(0, 0, -0.3, ZONE, depth, 0.3)
 
+/** A zone's floor, as polygon points, and its centre on screen: for pointing at a room. */
+export const zoneFloor = (z: number) =>
+  poly([pt(z, 0, 0), pt(z, ZONE, 0), pt(z, ZONE, ZONE), pt(z, 0, ZONE)])
+export const zoneCentre = (z: number) => pt(z, ZONE / 2, ZONE / 2)
+
 // ---------- 0 · Ingresso ----------
 const Z0 = at(0)
 const ENTRANCE = {

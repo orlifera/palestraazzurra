@@ -1,6 +1,6 @@
 "use client"
 
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { useEffect, useState } from "react"
 
 import { openState, type OpenState } from "@/lib/hours"
@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 export function OpenStatus({ className }: { className?: string }) {
   const t = useTranslations("status")
   const days = useTranslations("hours").raw("days") as string[]
+  const locale = useLocale()
   const [state, setState] = useState<OpenState | null>(null)
 
   useEffect(() => {
@@ -53,18 +54,27 @@ export function OpenStatus({ className }: { className?: string }) {
           {t("closed")}{" "}
           <span className="font-normal opacity-80">
             ·{" "}
-            {t("opensAt", {
-              day:
-                state.dayOffset === 0
-                  ? t("today")
-                  : state.dayOffset === 1
-                    ? t("tomorrow")
-                    : days[state.weekday],
-              time: state.opensAt,
-            })}
+            {state.dayOffset >= 7
+              ? t("opensOn", { date: longDate(state.date, locale), time: state.opensAt })
+              : t("opensAt", {
+                  day:
+                    state.dayOffset === 0
+                      ? t("today")
+                      : state.dayOffset === 1
+                        ? t("tomorrow")
+                        : days[state.weekday],
+                  time: state.opensAt,
+                })}
           </span>
         </span>
       )}
     </p>
+  )
+}
+
+/** "YYYY-MM-DD" as "24 agosto" / "24 August". */
+export function longDate(date: string, locale: string) {
+  return new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", timeZone: "UTC" }).format(
+    new Date(`${date}T00:00:00Z`)
   )
 }

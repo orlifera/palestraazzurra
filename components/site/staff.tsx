@@ -1,13 +1,23 @@
+"use client"
+
 import { InstagramIcon, Tick02Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
+import { useState } from "react"
 
 import { Reveal } from "@/components/motion/reveal"
-import { staff } from "@/data/site"
+import { askAbout } from "@/components/site/contact"
+import { courses, staff } from "@/data/site"
+import { cn } from "@/lib/utils"
 
 export function Staff() {
   const t = useTranslations("staff")
+  const c = useTranslations("courses")
+  const k = useTranslations("coaches")
+  // The course picked in "who coaches what"; its coaches stay lit, the rest step back.
+  const [course, setCourse] = useState<(typeof courses)[number] | null>(null)
+  const coaches = course ? staff.filter((m) => (m.courses as readonly string[]).includes(course)) : staff
 
   return (
     <section
@@ -43,13 +53,54 @@ export function Staff() {
         </Reveal>
       </div>
 
+      <div className="mt-20 sm:mt-28">
+        <h3 className="font-stamp text-xl">{k("title")}</h3>
+        <div role="radiogroup" aria-label={k("title")} className="mt-4 flex flex-wrap gap-2">
+          {[null, ...courses].map((id) => (
+            <button
+              key={id ?? "all"}
+              type="button"
+              role="radio"
+              aria-checked={course === id}
+              onClick={() => setCourse(id)}
+              className={cn(
+                "min-h-10 rounded-full border-2 px-4 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring",
+                course === id ? "border-primary bg-primary text-primary-foreground" : "border-sheet-line hover:border-primary"
+              )}
+            >
+              {id ? c(`items.${id}`) : k("all")}
+            </button>
+          ))}
+        </div>
+        <p className="mt-4 flex min-h-10 flex-wrap items-center gap-3 text-base font-semibold" aria-live="polite">
+          {course && !coaches.length ? (
+            <>
+              {k("none")}
+              <a
+                href="#contatti"
+                onClick={() => askAbout(c("askSubject", { course: c(`items.${course}`) }))}
+                className="underline decoration-primary decoration-2 underline-offset-4 hover:text-primary"
+              >
+                {k("ask")}
+              </a>
+            </>
+          ) : null}
+        </p>
+      </div>
+
       {/* The roster: one row per coach, credentials ticked like a scheda. */}
-      <ul className="mt-20 border-t-2 border-foreground sm:mt-28">
+      <ul className="mt-6 border-t-2 border-foreground">
         {staff.map((m, i) => {
           const roles = t.raw(`members.${m.id}.roles`) as string[]
           const credentials = t.raw(`members.${m.id}.credentials`) as string[]
           return (
-            <li key={m.id} className="border-b border-sheet-line">
+            <li
+              key={m.id}
+              className={cn(
+                "border-b border-sheet-line transition-opacity duration-300",
+                course && !coaches.includes(m) && "opacity-30"
+              )}
+            >
               <Reveal className="grid gap-6 py-8 sm:grid-cols-[9rem_1fr] sm:gap-8 lg:grid-cols-[11rem_1.1fr_1fr] lg:py-10" delay={Math.min(i, 2) * 0.04}>
                 <div className="relative size-32 overflow-hidden rounded-[var(--radius)] bg-muted sm:size-36 lg:size-44">
                   <Image
