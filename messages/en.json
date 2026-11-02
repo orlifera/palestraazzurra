@@ -200,7 +200,9 @@
       "Thursday",
       "Friday",
       "Saturday"
-    ]
+    ],
+    "range": "{from} to {to}",
+    "closed": "Closed"
   },
   "where": {
     "title": "Where we are",
@@ -311,11 +313,12 @@
     "ok": "We're open: we close at {time}.",
     "late": "We close at {time}: you'd only have {minutes} minutes.",
     "add": "Add to calendar",
-    "event": "Visit to Palestra Azzurra"
+    "event": "Visit to Palestra Azzurra",
+    "closedToday": "We've closed for today: pick another day."
   },
   "tools": {
     "title": "For lifters",
-    "lead": "Two tools to keep in your pocket on the floor.",
+    "lead": "The kit to keep in your pocket on the floor.",
     "plates": {
       "title": "Load the bar",
       "target": "Total weight",
@@ -336,6 +339,32 @@
       "pct": "%",
       "load": "Load",
       "repsCol": "Reps"
+    },
+    "timer": {
+      "title": "Rest",
+      "start": "Start",
+      "pause": "Pause",
+      "resume": "Resume",
+      "reset": "Reset",
+      "done": "Rest's over: your set!",
+      "seconds": "{s} s",
+      "sound": "Sound when rest ends"
+    },
+    "prs": {
+      "title": "Your records",
+      "lift": "Lift",
+      "weight": "Weight",
+      "save": "Save",
+      "empty": "No records yet. The first one is the best.",
+      "best": "Best",
+      "history": "History",
+      "remove": "Delete",
+      "privacy": "Saved on this device only: nobody else sees them.",
+      "lifts": {
+        "squat": "Squat",
+        "bench": "Bench press",
+        "deadlift": "Deadlift"
+      }
     }
   },
   "tour": {
@@ -377,5 +406,36 @@
   "barbell": {
     "load": "Load the bar",
     "hint": "Tap the bar · {kg} kg"
+  },
+  "share": {
+    "button": "Share",
+    "saved": "Image saved",
+    "orm": "My one-rep max",
+    "scheda": "My scheda",
+    "workout": "Workout of the week",
+    "footer": "@palestraazzurra · Follonica"
+  },
+  "workout": {
+    "title": "Workout of the week",
+    "sets": "Sets",
+    "reps": "Reps",
+    "rest": "Rest",
+    "restValue": "{s} s",
+    "week": "Week of {date}",
+    "exercise": "Exercise"
+  },
+  "guide": {
+    "title": "Exercise guide",
+    "lead": "Pick an area: we'll show you how it's done.",
+    "ask": "When in doubt, ask the staff on the floor: we'll correct you."
+  },
+  "langPrompt": {
+    "text": "Questa pagina è anche in italiano.",
+    "switch": "Vedi in italiano",
+    "dismiss": "Close"
+  },
+  "app": {
+    "install": "Add to Home Screen",
+    "ios": "On iPhone: tap Share, then “Add to Home Screen”."
   }
 }

@@ -11,13 +11,14 @@ import { ClosureNotice } from "@/components/site/closure-notice"
 import { OpenStatus } from "@/components/site/open-status"
 import { VisitPlanner } from "@/components/site/visit-planner"
 import { contact } from "@/data/site"
-import { hourRows, romeWeekday } from "@/lib/hours"
+import { hourRows, romeWeekday, rowLabel } from "@/lib/hours"
 import { cn } from "@/lib/utils"
 
 const noop = () => () => {}
 
 export function Visit() {
   const t = useTranslations("hours")
+  const days = t.raw("days") as string[]
   const w = useTranslations("where")
   const s = useTranslations("status")
   // Today's weekday in Follonica; null during SSR so the markup stays stable.
@@ -40,10 +41,10 @@ export function Visit() {
           <ClosureNotice className="mt-6" />
           <dl className="mt-10 border-t border-platform-line">
             {hourRows.map((r, i) => {
-              const active = today !== null && (r.days as readonly number[]).includes(today)
+              const active = today !== null && r.days.includes(today)
               return (
                 <Reveal
-                  key={r.key}
+                  key={r.days.join()}
                   delay={i * 0.06}
                   className={cn(
                     "relative grid grid-cols-1 items-baseline gap-x-6 gap-y-1 border-b border-platform-line py-6 sm:grid-cols-[1fr_auto]",
@@ -51,22 +52,28 @@ export function Visit() {
                   )}
                 >
                   <dt className="font-stamp text-lg sm:text-xl">
-                    {t(r.key)}
+                    {rowLabel(r.days, days, (from, to) => t("range", { from, to }))}
                     {active ? (
                       <span className="ml-3 inline-block -rotate-6 rounded-md border-2 border-primary px-2 py-0.5 align-middle text-xs">
                         {s("today")}
                       </span>
                     ) : null}
-                    {r.note ? (
+                    {r.time && r.days.length > 1 ? (
                       <span className="block text-sm font-semibold tracking-normal text-platform-muted normal-case">
                         {t("continuous")}
                       </span>
                     ) : null}
                   </dt>
                   <dd className="font-display tabular text-[clamp(3rem,7vw,6rem)]">
-                    {r.time[0]}
-                    <span className="mx-[0.15em] text-platform-muted">–</span>
-                    {r.time[1]}
+                    {r.time ? (
+                      <>
+                        {r.time[0]}
+                        <span className="mx-[0.15em] text-platform-muted">–</span>
+                        {r.time[1]}
+                      </>
+                    ) : (
+                      t("closed")
+                    )}
                   </dd>
                 </Reveal>
               )

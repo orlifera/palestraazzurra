@@ -13,8 +13,9 @@ const hhmm = (minutes: number) =>
 export function gymJsonLd(locale: string, description: string) {
   // Days sharing their hours go in one entry.
   const groups = new Map<string, string[]>()
-  for (const [day, [from, to]] of Object.entries(openingHours)) {
-    const key = `${hhmm(from)}-${hhmm(to)}`
+  for (const [day, hours] of Object.entries(openingHours)) {
+    if (!hours) continue
+    const key = `${hhmm(hours[0])}-${hhmm(hours[1])}`
     groups.set(key, [...(groups.get(key) ?? []), DAYS[Number(day)]])
   }
 

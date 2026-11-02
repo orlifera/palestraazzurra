@@ -1,0 +1,76 @@
+{
+  "groups": [
+    {
+      "id": "legs",
+      "name": { "it": "Gambe", "en": "Legs" },
+      "exercises": [
+        {
+          "name": { "it": "Squat con bilanciere", "en": "Barbell squat" },
+          "how": {
+            "it": "Bilanciere sui trapezi, piedi alla larghezza delle spalle. Scendi spingendo indietro il bacino, ginocchia in linea con le punte, schiena neutra. Risali spingendo con tutto il piede.",
+            "en": "Bar on your upper back, feet shoulder-width apart. Sit back and down, knees tracking over your toes, back neutral. Drive up through the whole foot."
+          },
+          "photo": "/images/gym/barbell-squat.webp"
+        },
+        {
+          "name": { "it": "Leg press", "en": "Leg press" },
+          "how": {
+            "it": "Schiena ben appoggiata allo schienale, piedi al centro della pedana. Piega le ginocchia verso il petto senza staccare il bacino, poi spingi senza bloccare le ginocchia in fondo.",
+            "en": "Back flat against the pad, feet in the middle of the platform. Bring your knees towards your chest without lifting your hips, then press without locking your knees."
+          },
+          "photo": "/images/gym/legs.webp"
+        }
+      ]
+    },
+    {
+      "id": "chest",
+      "name": { "it": "Petto", "en": "Chest" },
+      "exercises": [
+        {
+          "name": { "it": "Panca piana", "en": "Bench press" },
+          "how": {
+            "it": "Sdraiato con occhi sotto il bilanciere, scapole strette e piedi a terra. Porta il bilanciere a metà petto con i gomiti a circa 45°, poi spingi in alto.",
+            "en": "Lie with your eyes under the bar, shoulder blades pinched and feet planted. Lower the bar to mid-chest with elbows at about 45°, then press up."
+          },
+          "photo": "/images/gym/bench.webp"
+        },
+        {
+          "name": { "it": "Piegamenti", "en": "Push-ups" },
+          "how": {
+            "it": "Mani poco più larghe delle spalle, corpo in linea dalla testa ai talloni. Scendi finché il petto sfiora il pavimento e risali senza far cedere i fianchi.",
+            "en": "Hands just wider than your shoulders, body in a line from head to heels. Lower until your chest nearly touches the floor and push up without letting your hips sag."
+          },
+          "photo": "/images/gym/pushup.webp"
+        }
+      ]
+    },
+    {
+      "id": "core",
+      "name": { "it": "Addome", "en": "Core" },
+      "exercises": [
+        {
+          "name": { "it": "Plank", "en": "Plank" },
+          "how": {
+            "it": "Avambracci a terra sotto le spalle, corpo in linea, addome e glutei contratti. Respira con calma e tieni la posizione senza alzare o abbassare il bacino.",
+            "en": "Forearms on the floor under your shoulders, body in a line, abs and glutes tight. Breathe steadily and hold without raising or dropping your hips."
+          },
+          "photo": "/images/gym/floor-plank.webp"
+        }
+      ]
+    },
+    {
+      "id": "arms",
+      "name": { "it": "Braccia", "en": "Arms" },
+      "exercises": [
+        {
+          "name": { "it": "Curl con manubri", "en": "Dumbbell curl" },
+          "how": {
+            "it": "In piedi, gomiti fermi lungo i fianchi. Porta i manubri verso le spalle ruotando i palmi in alto, poi scendi lentamente senza dondolare il busto.",
+            "en": "Standing, elbows fixed at your sides. Curl the dumbbells towards your shoulders, palms turning up, then lower slowly without swinging."
+          },
+          "photo": "/images/gym/dumbbell-curl.webp"
+        }
+      ]
+    }
+  ]
+}

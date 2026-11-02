@@ -56,16 +56,17 @@ export function VisitPlanner() {
   if (!today) return <div className="min-h-80" />
 
   const date = addDays(today, offset)
-  const hours = openingHours[weekdayOf(date)]
+  const hours = openingHours[weekdayOf(date)] ?? null
   const closure = closureOn(date)
-  const open = hours && !closure
+  const [opens, closes] = hours ?? [0, 0]
+  const open = !!hours && !closure
   // Half-hour slots from opening to half an hour before closing, from now on if it's today.
   const now = offset === 0 ? romeMinutes() : 0
   const slots = open
-    ? Array.from({ length: (hours[1] - hours[0]) / 30 }, (_, i) => hours[0] + i * 30).filter((m) => m + 30 > now && m < hours[1])
+    ? Array.from({ length: (closes - opens) / 30 }, (_, i) => opens + i * 30).filter((m) => m + 30 > now && m < closes)
     : []
   const at = time !== null && slots.includes(time) ? time : slots[0]
-  const left = open && at !== undefined ? hours[1] - at : 0
+  const left = open && at !== undefined ? closes - at : 0
 
   const dayName = (o: number) =>
     o === 0
@@ -110,16 +111,18 @@ export function VisitPlanner() {
             ? t("closure", { note: closure.note[locale as "it" | "en"] })
             : t("closedDay")
           : !slots.length
-            ? t("closedDay")
+            ? open && offset === 0
+              ? t("closedToday")
+              : t("closedDay")
             : left < SHORT
-              ? <span className="text-primary">{t("late", { time: fmt(hours[1]), minutes: left })}</span>
-              : t("ok", { time: fmt(hours[1]) })}
+              ? <span className="text-primary">{t("late", { time: fmt(closes), minutes: left })}</span>
+              : t("ok", { time: fmt(closes) })}
       </p>
 
       {slots.length && at !== undefined ? (
         <button
           type="button"
-          onClick={() => downloadIcs(t("event"), date, at, Math.min(at + 60, hours[1]))}
+          onClick={() => downloadIcs(t("event"), date, at, Math.min(at + 60, closes))}
           className="mt-4 inline-flex h-12 items-center gap-2 rounded-full border-2 border-platform-foreground px-5 font-bold transition hover:bg-platform-foreground hover:text-platform focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring"
         >
           <HugeiconsIcon icon={Calendar03Icon} className="size-5" />

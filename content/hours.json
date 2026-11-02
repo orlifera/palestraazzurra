@@ -1,0 +1,12 @@
+{
+  "weekly": {
+    "monday": { "closed": false, "open": "07:30", "close": "21:30" },
+    "tuesday": { "closed": false, "open": "07:30", "close": "21:30" },
+    "wednesday": { "closed": false, "open": "07:30", "close": "21:30" },
+    "thursday": { "closed": false, "open": "07:30", "close": "21:30" },
+    "friday": { "closed": false, "open": "07:30", "close": "21:30" },
+    "saturday": { "closed": false, "open": "09:00", "close": "17:00" },
+    "sunday": { "closed": false, "open": "08:30", "close": "12:30" }
+  },
+  "closures": []
+}

@@ -1,97 +1,55 @@
+import { COURSES, contactInfo, hours, staff as staffList, stats as statsInfo, tour } from "@/lib/content"
+
+/*
+ * What the staff edit lives in content/*.json (lib/content.ts checks it);
+ * this file shapes it for the site, next to what stays in code.
+ */
+
 export const contact = {
-  email: "palestraazzurra.fit@gmail.com",
-  phone: "+39 0566 469433",
-  phoneHref: "tel:+390566469433",
-  instagram: "https://www.instagram.com/palestraazzurra/",
-  facebook: "https://www.facebook.com/profile.php?id=61557082070869",
-  maps: "https://www.google.com/maps/search/?api=1&query=Palestra+Azzurra+via+Rossini+1+58022+Follonica+GR",
+  ...contactInfo,
+  phoneHref: `tel:${contactInfo.phone.replace(/[^\d+]/g, "")}`,
 }
 
-/** Opening hours in Europe/Rome time, minutes from midnight, indexed by JS weekday (0 = Sunday). */
-export const openingHours: Record<number, [number, number]> = {
-  0: [8 * 60 + 30, 12 * 60 + 30],
-  1: [7 * 60 + 30, 21 * 60 + 30],
-  2: [7 * 60 + 30, 21 * 60 + 30],
-  3: [7 * 60 + 30, 21 * 60 + 30],
-  4: [7 * 60 + 30, 21 * 60 + 30],
-  5: [7 * 60 + 30, 21 * 60 + 30],
-  6: [9 * 60, 17 * 60],
-}
+const DAYS = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"] as const
+const minutes = (t: string) => Number(t.slice(0, 2)) * 60 + Number(t.slice(3))
+
+/** Opening hours in Europe/Rome time, minutes from midnight, indexed by JS weekday (0 = Sunday); closed days are missing. */
+export const openingHours: Partial<Record<number, [number, number]>> = Object.fromEntries(
+  DAYS.flatMap((d, i) => {
+    const h = hours.weekly[d]
+    return h.closed ? [] : [[i, [minutes(h.open), minutes(h.close)]]]
+  })
+)
 
 /**
  * Days closed outside the weekly hours (holidays, August, maintenance), in
  * Follonica's calendar: `from` alone for one day, `from` and `to` for a
- * stretch, both included. The open status, the hours, Google's listing and
- * the notice that shows two weeks ahead all follow this list. Past entries
- * can stay; they're ignored.
- *
- *   { from: "2026-12-25", to: "2026-12-26", note: { it: "Natale", en: "Christmas" } },
+ * stretch, both included. Past entries are ignored.
  */
-export const closures: {
-  from: string
-  to?: string
-  note?: { it: string; en: string }
-}[] = []
+export const closures = hours.closures.map((c) => ({
+  from: c.from,
+  to: c.to || undefined,
+  note: c.note?.it || c.note?.en ? c.note : undefined,
+}))
 
-export const stats = { years: 17, degrees: 24 }
+export const stats = statsInfo
 
-export const courses = [
-  "pt",
-  "weight",
-  "pregnancy",
-  "rehab",
-  "anamnesis",
-  "bodybuilding",
-  "posture",
-  "seniors",
-] as const
+export const courses = COURSES
 
-/**
- * The coaches. `courses` lists what each one follows, by the ids above:
- * filled in from the roster (personal trainers; Giada's fitness and body
- * building diploma). Add the rest as the gym confirms them.
- */
-export const staff = [
-  {
-    id: "bonucci",
-    courses: ["pt"],
-    name: "Lorenzo Bonucci",
-    photo: "/images/staff/lorenzo-bonucci.webp",
-    instagram: "https://www.instagram.com/bonucci_lorenzo_7",
-  },
-  {
-    id: "lgiannoni",
-    courses: ["pt"],
-    name: "Lorenzo Giannoni",
-    photo: "/images/staff/lorenzo-giannoni.webp",
-    instagram: "https://www.instagram.com/giannonilorenzo",
-  },
-  {
-    id: "camici",
-    courses: ["pt"],
-    name: "Ettore Camici",
-    photo: "/images/staff/ettore-camici.webp",
-  },
-  {
-    id: "mangani",
-    courses: ["pt", "bodybuilding"],
-    name: "Giada Mangani",
-    photo: "/images/staff/giada-mangani.webp",
-    instagram: "https://www.instagram.com/giadamangani",
-  },
-  {
-    id: "mgiannoni",
-    courses: [],
-    name: "Marco Giannoni",
-    photo: "/images/staff/marco-giannoni.webp",
-  },
-] as const satisfies readonly {
-  id: string
-  courses: readonly (typeof courses)[number][]
-  name: string
-  photo: string
-  instagram?: string
-}[]
+/** The coaches; `courses` lists what each one follows, by the ids above. */
+export const staff = staffList
+
+/** The zones of the plan (components/iso/gym-plan.tsx) a visitor can tap in the tour, with a photo where one shows that room. */
+export const tourZones = (
+  [
+    { id: "entrance", zone: 0 },
+    { id: "weights", zone: 1 },
+    { id: "dumbbells", zone: 2 },
+    { id: "classes", zone: 3 },
+    { id: "lab", zone: 4 },
+    { id: "sea", zone: 7 },
+  ] as const
+).map((z) => ({ ...z, photo: tour.photos[z.id] || undefined }))
 
 export const gallery = [
   { src: "/images/gym/dumbbell-curl.webp", alt: "curl", w: 1920, h: 1280 },
@@ -131,15 +89,3 @@ export const sections = [
 
 export const BAR_KG = 20
 
-/**
- * The zones of the plan (components/iso/gym-plan.tsx) a visitor can tap in
- * the tour, by zone index, with a photo where one shows that room.
- */
-export const tourZones = [
-  { id: "entrance", zone: 0 },
-  { id: "weights", zone: 1, photo: "/images/gym/barbell-squat.webp" },
-  { id: "dumbbells", zone: 2, photo: "/images/gym/dumbbell-rack.webp" },
-  { id: "classes", zone: 3 },
-  { id: "lab", zone: 4, photo: "/images/gym/lab-studio.webp" },
-  { id: "sea", zone: 7 },
-] as const

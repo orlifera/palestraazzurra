@@ -91,8 +91,9 @@ export function Staff() {
       {/* The roster: one row per coach, credentials ticked like a scheda. */}
       <ul className="mt-6 border-t-2 border-foreground">
         {staff.map((m, i) => {
-          const roles = t.raw(`members.${m.id}.roles`) as string[]
-          const credentials = t.raw(`members.${m.id}.credentials`) as string[]
+          // A coach added from the editor may not have their roles written yet.
+          const roles = (t.has(`members.${m.id}.roles`) ? t.raw(`members.${m.id}.roles`) : []) as string[]
+          const credentials = (t.has(`members.${m.id}.credentials`) ? t.raw(`members.${m.id}.credentials`) : []) as string[]
           return (
             <li
               key={m.id}
@@ -103,13 +104,15 @@ export function Staff() {
             >
               <Reveal className="grid gap-6 py-8 sm:grid-cols-[9rem_1fr] sm:gap-8 lg:grid-cols-[11rem_1.1fr_1fr] lg:py-10" delay={Math.min(i, 2) * 0.04}>
                 <div className="relative size-32 overflow-hidden rounded-[var(--radius)] bg-muted sm:size-36 lg:size-44">
-                  <Image
-                    src={m.photo}
-                    alt={m.name}
-                    fill
-                    sizes="11rem"
-                    className="object-cover object-top grayscale-[0.2] transition duration-500 hover:grayscale-0"
-                  />
+                  {m.photo ? (
+                    <Image
+                      src={m.photo}
+                      alt={m.name}
+                      fill
+                      sizes="11rem"
+                      className="object-cover object-top grayscale-[0.2] transition duration-500 hover:grayscale-0"
+                    />
+                  ) : null}
                 </div>
                 <div>
                   <h3 className="font-display text-[clamp(2.4rem,4.6vw,4rem)]">{m.name}</h3>
@@ -123,7 +126,7 @@ export function Staff() {
                       </li>
                     ))}
                   </ul>
-                  {"instagram" in m && m.instagram ? (
+                  {m.instagram ? (
                     <a
                       href={m.instagram}
                       target="_blank"

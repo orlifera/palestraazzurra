@@ -20,17 +20,29 @@ export function fmt(minutes: number) {
 }
 
 /**
- * The hours as the site lists them: one row per group of days sharing a
- * time, each a key of the `hours` messages. If one weekday ever gets its own
- * hours, it needs its own row here.
+ * The hours as the site lists them, Monday first: runs of days sharing a
+ * time become one row, a closed day its own. `days` are JS weekdays.
  */
-export const hourRows = (
-  [
-    { key: "weekdays", days: [1, 2, 3, 4, 5], note: true },
-    { key: "saturday", days: [6], note: false },
-    { key: "sunday", days: [0], note: false },
-  ] as const
-).map((r) => ({ ...r, time: openingHours[r.days[0]].map(fmt) as [string, string] }))
+export const hourRows = [1, 2, 3, 4, 5, 6, 0].reduce<
+  { days: number[]; time: [string, string] | null }[]
+>((rows, day) => {
+  const h = openingHours[day]
+  const time = h ? (h.map(fmt) as [string, string]) : null
+  const last = rows[rows.length - 1]
+  if (last && String(last.time) === String(time)) last.days.push(day)
+  else rows.push({ days: [day], time })
+  return rows
+}, [])
+
+/** A row's days as words: "Sabato", or "Dal lunedì al venerdì" through the `range` message. */
+export function rowLabel(
+  days: number[],
+  names: string[],
+  range: (from: string, to: string) => string
+) {
+  const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
+  return days.length === 1 ? cap(names[days[0]]) : cap(range(names[days[0]], names[days[days.length - 1]]))
+}
 
 /** Weekday, minutes from midnight and date right now in Follonica. */
 function romeNow(date: Date) {
@@ -95,7 +107,7 @@ export function upcomingClosure(date = new Date()): Closure | undefined {
 
 export function openState(date = new Date()): OpenState {
   const { weekday, minutes, date: today } = romeNow(date)
-  const [from, to] = openingHours[weekday]
+  const [from, to] = openingHours[weekday] ?? [0, 0]
   if (!closureOn(today) && minutes >= from && minutes < to) {
     return { open: true, closesAt: fmt(to) }
   }

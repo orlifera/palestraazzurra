@@ -9,6 +9,7 @@ import { useState } from "react"
 import { Reveal } from "@/components/motion/reveal"
 import { Stamp } from "@/components/motion/stamp"
 import { askAbout } from "@/components/site/contact"
+import { ShareButton } from "@/components/site/share-card"
 import { Choice, Sheet } from "@/components/site/sheet"
 import { cn } from "@/lib/utils"
 
@@ -25,6 +26,7 @@ type Goal = (typeof GOALS)[number]
  */
 export function SchedaBuilder() {
   const t = useTranslations("builder")
+  const s = useTranslations("share")
   const [goals, setGoals] = useState<Goal[]>([])
   const [days, setDays] = useState<number>(3)
   const [level, setLevel] = useState<(typeof LEVELS)[number]>("some")
@@ -150,6 +152,19 @@ export function SchedaBuilder() {
                 <p id="scheda-error" role="alert" className="mt-3 min-h-6 text-sm font-semibold text-destructive">
                   {error ? t("empty") : ""}
                 </p>
+                {goals.length ? (
+                  <ShareButton
+                    className="mt-2"
+                    card={() => ({
+                      title: s("scheda"),
+                      rows: [
+                        ...GOALS.filter((g) => goals.includes(g)).map((g) => t(`goals.${g}`)),
+                        t("messageDays", { days }),
+                      ],
+                      name: "palestra-azzurra-scheda",
+                    })}
+                  />
+                ) : null}
               </div>
             </div>
           </Sheet>

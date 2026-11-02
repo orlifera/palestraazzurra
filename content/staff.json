@@ -1,0 +1,23 @@
+[
+  {
+    "id": "bonucci",
+    "name": "Lorenzo Bonucci",
+    "photo": "/images/staff/lorenzo-bonucci.webp",
+    "instagram": "https://www.instagram.com/bonucci_lorenzo_7",
+    "courses": ["pt"]
+  },
+  {
+    "id": "lgiannoni",
+    "name": "Lorenzo Giannoni",
+    "photo": "/images/staff/lorenzo-giannoni.webp",
+    "instagram": "https://www.instagram.com/giannonilorenzo",
+    "courses": ["pt"]
+  },
+  {
+    "id": "camici",
+    "name": "Ettore Camici",
+    "photo": "/images/staff/ettore-camici.webp",
+    "instagram": "",
+    "courses": ["pt"]
+  }
+]

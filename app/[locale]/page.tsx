@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server"
 
 import { PlanBackdrop } from "@/components/motion/plan-backdrop"
+import { LangPrompt, ServiceWorker } from "@/components/site/app-extras"
 import { About } from "@/components/site/about"
 import { Contact } from "@/components/site/contact"
 import { Courses } from "@/components/site/courses"
@@ -13,6 +14,7 @@ import { Motto } from "@/components/site/motto"
 import { SchedaBuilder } from "@/components/site/scheda-builder"
 import { Staff } from "@/components/site/staff"
 import { Tools } from "@/components/site/tools"
+import { ExerciseGuide, WeeklyWorkout } from "@/components/site/workout"
 import { Visit } from "@/components/site/visit"
 import { gymJsonLd } from "@/lib/json-ld"
 
@@ -37,6 +39,8 @@ export default async function Page({ params }: PageProps<"/[locale]">) {
         <Courses />
         <Lab />
         <Tools />
+        <WeeklyWorkout />
+        <ExerciseGuide />
         <Staff />
         <GymTour />
         <Visit />
@@ -44,6 +48,8 @@ export default async function Page({ params }: PageProps<"/[locale]">) {
         <Contact />
       </main>
       <Footer />
+      <LangPrompt />
+      <ServiceWorker />
     </>
   )
 }

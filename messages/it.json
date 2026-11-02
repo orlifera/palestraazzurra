@@ -200,7 +200,9 @@
       "giovedì",
       "venerdì",
       "sabato"
-    ]
+    ],
+    "range": "dal {from} al {to}",
+    "closed": "Chiuso"
   },
   "where": {
     "title": "Dove siamo",
@@ -311,11 +313,12 @@
     "ok": "Siamo aperti: chiudiamo alle {time}.",
     "late": "Chiudiamo alle {time}: avrai solo {minutes} minuti.",
     "add": "Aggiungi al calendario",
-    "event": "Visita a Palestra Azzurra"
+    "event": "Visita a Palestra Azzurra",
+    "closedToday": "Per oggi abbiamo chiuso: scegli un altro giorno."
   },
   "tools": {
     "title": "Per chi solleva",
-    "lead": "Due strumenti da tenere in tasca, in sala.",
+    "lead": "Gli attrezzi da tenere in tasca, in sala.",
     "plates": {
       "title": "Carica il bilanciere",
       "target": "Peso totale",
@@ -336,6 +339,32 @@
       "pct": "%",
       "load": "Carico",
       "repsCol": "Ripetizioni"
+    },
+    "timer": {
+      "title": "Recupero",
+      "start": "Via",
+      "pause": "Pausa",
+      "resume": "Riprendi",
+      "reset": "Azzera",
+      "done": "Recupero finito: tocca a te!",
+      "seconds": "{s} s",
+      "sound": "Suono a fine recupero"
+    },
+    "prs": {
+      "title": "I tuoi record",
+      "lift": "Esercizio",
+      "weight": "Peso",
+      "save": "Salva",
+      "empty": "Nessun record ancora. Il primo è il più bello.",
+      "best": "Migliore",
+      "history": "Storico",
+      "remove": "Elimina",
+      "privacy": "Salvati solo su questo dispositivo: non li vede nessun altro.",
+      "lifts": {
+        "squat": "Squat",
+        "bench": "Panca piana",
+        "deadlift": "Stacco da terra"
+      }
     }
   },
   "tour": {
@@ -377,5 +406,36 @@
   "barbell": {
     "load": "Carica il bilanciere",
     "hint": "Tocca il bilanciere · {kg} kg"
+  },
+  "share": {
+    "button": "Condividi",
+    "saved": "Immagine salvata",
+    "orm": "Il mio massimale",
+    "scheda": "La mia scheda",
+    "workout": "Allenamento della settimana",
+    "footer": "@palestraazzurra · Follonica"
+  },
+  "workout": {
+    "title": "Allenamento della settimana",
+    "sets": "Serie",
+    "reps": "Ripetizioni",
+    "rest": "Recupero",
+    "restValue": "{s} s",
+    "week": "Settimana del {date}",
+    "exercise": "Esercizio"
+  },
+  "guide": {
+    "title": "Guida agli esercizi",
+    "lead": "Scegli una zona: ti mostriamo come si fa.",
+    "ask": "Nel dubbio, chiedi allo staff in sala: ti correggiamo noi."
+  },
+  "langPrompt": {
+    "text": "This page is also in English.",
+    "switch": "View in English",
+    "dismiss": "Chiudi"
+  },
+  "app": {
+    "install": "Aggiungi alla schermata Home",
+    "ios": "Su iPhone: tocca Condividi, poi «Aggiungi alla schermata Home»."
   }
 }

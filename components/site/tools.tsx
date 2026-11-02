@@ -7,6 +7,9 @@ import { useId, useState } from "react"
 
 import { Barbell, fitsSleeve, PLATE_KG } from "@/components/motion/barbell"
 import { Reveal } from "@/components/motion/reveal"
+import { InstallButton } from "@/components/site/app-extras"
+import { PersonalBests, RestTimer } from "@/components/site/floor-tools"
+import { ShareButton } from "@/components/site/share-card"
 import { Choice, Sheet } from "@/components/site/sheet"
 
 const BARS = [20, 15, 10] as const
@@ -57,14 +60,21 @@ export function Tools() {
               {t("title")}
             </h2>
             <p className="font-stamp mt-6 text-xl text-balance text-primary sm:text-2xl">{t("lead")}</p>
+            <InstallButton className="mt-8" />
           </div>
         </Reveal>
         <div className="grid gap-10 lg:col-span-8">
           <Reveal>
+            <RestTimer />
+          </Reveal>
+          <Reveal>
             <PlateCalculator />
           </Reveal>
-          <Reveal delay={0.05}>
+          <Reveal>
             <OneRepMax />
+          </Reveal>
+          <Reveal>
+            <PersonalBests />
           </Reveal>
         </div>
       </div>
@@ -169,6 +179,8 @@ function PlateCalculator() {
 
 function OneRepMax() {
   const t = useTranslations("tools.orm")
+  const s = useTranslations("share")
+  const num = new Intl.NumberFormat(useLocale())
   const [kg, setKg] = useState(80)
   const [reps, setReps] = useState(5)
   const max = epley(kg, reps)
@@ -189,6 +201,14 @@ function OneRepMax() {
             </p>
           </div>
           <p className="text-sm leading-relaxed text-foreground/70">{t("note")}</p>
+          <ShareButton
+            card={() => ({
+              title: s("orm"),
+              headline: `${num.format(round(max))} kg`,
+              rows: [`${t("weight")}: ${num.format(kg)} kg × ${reps}`],
+              name: "palestra-azzurra-massimale",
+            })}
+          />
         </div>
 
         <table className="w-full self-start text-left">

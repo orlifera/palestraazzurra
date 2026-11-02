@@ -5,12 +5,13 @@ import { useTranslations } from "next-intl"
 import { Fragment } from "react"
 
 import { contact } from "@/data/site"
-import { hourRows } from "@/lib/hours"
+import { hourRows, rowLabel } from "@/lib/hours"
 
 export function Footer() {
   const t = useTranslations("footer")
   const nav = useTranslations("nav")
   const h = useTranslations("hours")
+  const days = h.raw("days") as string[]
 
   return (
     <footer className="rubber mt-10 overflow-hidden rounded-t-[calc(var(--radius)*2)] text-platform-foreground">
@@ -32,9 +33,12 @@ export function Footer() {
           <div className="text-sm leading-relaxed">
             <p className="font-stamp mb-3">{h("title")}</p>
             {hourRows.map((r) => (
-              <Fragment key={r.key}>
-                <p>{h(r.key)}: <span className="tabular">{r.time.join("–")}</span></p>
-                {r.note ? <p className="text-platform-muted">{h("continuous")}</p> : null}
+              <Fragment key={r.days.join()}>
+                <p>
+                  {rowLabel(r.days, days, (from, to) => h("range", { from, to }))}:{" "}
+                  <span className="tabular">{r.time ? r.time.join("–") : h("closed")}</span>
+                </p>
+                {r.time && r.days.length > 1 ? <p className="text-platform-muted">{h("continuous")}</p> : null}
               </Fragment>
             ))}
           </div>

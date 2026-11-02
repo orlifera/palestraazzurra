@@ -102,7 +102,7 @@ export function GymTour() {
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               >
-                {"photo" in zone ? (
+                {zone.photo ? (
                   <div className="relative aspect-[3/2] overflow-hidden rounded-[var(--radius)] bg-muted">
                     <Image src={zone.photo} alt={t(`zones.${active}.name`)} fill sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover" />
                   </div>

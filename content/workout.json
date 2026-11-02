@@ -1,0 +1,14 @@
+{
+  "published": false,
+  "week": "",
+  "title": { "it": "Esempio: total body", "en": "Example: full body" },
+  "notes": {
+    "it": "Bozza di esempio: lo staff la sostituisce con l'allenamento della settimana e la pubblica.",
+    "en": "Example draft: the staff replace it with the week's workout and publish it."
+  },
+  "exercises": [
+    { "name": { "it": "Squat con bilanciere", "en": "Barbell squat" }, "sets": 4, "reps": "8", "rest": 90 },
+    { "name": { "it": "Panca piana", "en": "Bench press" }, "sets": 4, "reps": "8", "rest": 90 },
+    { "name": { "it": "Plank", "en": "Plank" }, "sets": 3, "reps": "40 s", "rest": 60 }
+  ]
+}
