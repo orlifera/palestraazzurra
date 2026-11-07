@@ -437,5 +437,28 @@
   "app": {
     "install": "Add to Home Screen",
     "ios": "On iPhone: tap Share, then “Add to Home Screen”."
+  },
+  "locker": {
+    "title": "The kit",
+    "lead": "Everything you need, when you need it: open only what you use.",
+    "open": "Open",
+    "start": "Start",
+    "fill": "Fill it in",
+    "plan": "Plan",
+    "groups": {
+      "floor": "On the floor",
+      "before": "Before you come"
+    },
+    "items": {
+      "timer": "A rest timer between sets.",
+      "plates": "Which plates go on, side by side.",
+      "orm": "Estimate your max and your working loads.",
+      "prs": "Your records, saved on your phone.",
+      "guide": "How the main exercises are done.",
+      "finder": "Three questions to find the right course.",
+      "builder": "Tick your goals and send us the card.",
+      "tour": "The gym, room by room.",
+      "planner": "Pick a day and time and add it to your calendar."
+    }
   }
 }

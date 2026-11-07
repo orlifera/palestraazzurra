@@ -16,11 +16,11 @@ export function Footer() {
   return (
     <footer className="rubber mt-10 overflow-hidden rounded-t-[calc(var(--radius)*2)] text-platform-foreground">
       <div className="mx-auto max-w-[90rem] px-4 pt-20 pb-10 sm:px-6 lg:px-10">
-        <p className="font-display text-[clamp(3.4rem,10vw,10rem)] text-balance">
+        <p className="font-display text-[clamp(2.5rem,10vw,10rem)] text-balance">
           {t("tagline")}
         </p>
 
-        <div className="mt-16 grid gap-10 border-t border-platform-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-8 sm:mt-16 sm:gap-10 border-t border-platform-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Image src="/brand/logo-white.png" alt="Palestra Azzurra" width={900} height={319} className="h-10 w-auto" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-platform-muted">{t("strength")}</p>

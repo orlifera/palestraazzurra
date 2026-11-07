@@ -23,12 +23,12 @@ export function Staff() {
     <section
       id="staff"
       aria-labelledby="staff-title"
-      className="mx-auto max-w-[90rem] px-4 py-24 sm:px-6 lg:px-10 lg:py-36"
+      className="mx-auto max-w-[90rem] px-4 py-16 sm:px-6 sm:py-24 lg:px-10 lg:py-36"
     >
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+      <div className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-6">
           <Reveal>
-            <h2 id="staff-title" className="font-display text-[clamp(4rem,9vw,8.5rem)]">
+            <h2 id="staff-title" className="font-display text-[clamp(2.75rem,9vw,8.5rem)]">
               {t("title")}
             </h2>
             <p className="font-stamp mt-6 text-xl text-balance text-primary sm:text-2xl">{t("lead")}</p>
@@ -41,7 +41,7 @@ export function Staff() {
           </Reveal>
         </div>
         <Reveal className="lg:col-span-5 lg:col-start-8" delay={0.1}>
-          <div className="relative aspect-[3/4] overflow-hidden rounded-[var(--radius)] bg-muted">
+          <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[3/4] rounded-[var(--radius)] bg-muted">
             <Image
               src="/images/gym/floor-plank.webp"
               alt={t("teamAlt")}
@@ -53,7 +53,7 @@ export function Staff() {
         </Reveal>
       </div>
 
-      <div className="mt-20 sm:mt-28">
+      <div className="mt-12 sm:mt-28">
         <h3 className="font-stamp text-xl">{k("title")}</h3>
         <div role="radiogroup" aria-label={k("title")} className="mt-4 flex flex-wrap gap-2">
           {[null, ...courses].map((id) => (
@@ -102,8 +102,8 @@ export function Staff() {
                 course && !coaches.includes(m) && "opacity-30"
               )}
             >
-              <Reveal className="grid gap-6 py-8 sm:grid-cols-[9rem_1fr] sm:gap-8 lg:grid-cols-[11rem_1.1fr_1fr] lg:py-10" delay={Math.min(i, 2) * 0.04}>
-                <div className="relative size-32 overflow-hidden rounded-[var(--radius)] bg-muted sm:size-36 lg:size-44">
+              <Reveal className="grid grid-cols-[5.5rem_1fr] items-start gap-4 py-6 sm:grid-cols-[9rem_1fr] sm:gap-8 sm:py-8 lg:grid-cols-[11rem_1.1fr_1fr] lg:py-10" delay={Math.min(i, 2) * 0.04}>
+                <div className="relative size-22 overflow-hidden rounded-[var(--radius)] bg-muted sm:size-36 lg:size-44">
                   {m.photo ? (
                     <Image
                       src={m.photo}
@@ -115,8 +115,8 @@ export function Staff() {
                   ) : null}
                 </div>
                 <div>
-                  <h3 className="font-display text-[clamp(2.4rem,4.6vw,4rem)]">{m.name}</h3>
-                  <ul className="mt-4 flex flex-wrap gap-2">
+                  <h3 className="font-display text-[clamp(1.9rem,4.6vw,4rem)]">{m.name}</h3>
+                  <ul className="mt-3 flex flex-wrap gap-2 sm:mt-4">
                     {roles.map((r) => (
                       <li
                         key={r}
@@ -139,7 +139,7 @@ export function Staff() {
                     </a>
                   ) : null}
                 </div>
-                <ul className="space-y-2.5 sm:col-start-2 lg:col-start-3">
+                <ul className="col-span-2 space-y-2.5 sm:col-span-1 sm:col-start-2 lg:col-start-3">
                   {credentials.map((c) => (
                     <li key={c} className="flex gap-3 text-base leading-snug">
                       <HugeiconsIcon icon={Tick02Icon} strokeWidth={2.5} className="mt-0.5 size-4.5 shrink-0 text-primary" />

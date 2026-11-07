@@ -30,11 +30,11 @@ export function WeeklyWorkout() {
     <section
       id="allenamento"
       aria-labelledby="allenamento-title"
-      className="mx-auto max-w-[90rem] px-4 py-24 sm:px-6 lg:px-10 lg:py-36"
+      className="mx-auto max-w-[90rem] px-4 py-16 sm:px-6 sm:py-24 lg:px-10 lg:py-36"
     >
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+      <div className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-10">
         <Reveal className="lg:col-span-4">
-          <h2 id="allenamento-title" className="font-display text-[clamp(3rem,4.6vw,4.75rem)] text-balance break-words hyphens-auto">
+          <h2 id="allenamento-title" className="font-display text-[clamp(2.25rem,4.6vw,4.75rem)] text-balance break-words hyphens-auto">
             {t("title")}
           </h2>
           {week ? <p className="font-stamp mt-6 text-xl text-primary sm:text-2xl">{t("week", { date: week })}</p> : null}
@@ -84,7 +84,7 @@ export function WeeklyWorkout() {
   )
 }
 
-/** How the main exercises are done, by body area, with the gym's own photos (content/exercises.json). */
+/** How the main exercises are done, by body area, with the gym's own photos (content/exercises.json). Lives in the locker drawer. */
 export function ExerciseGuide() {
   const t = useTranslations("guide")
   const locale = useLocale() as Locale
@@ -93,19 +93,8 @@ export function ExerciseGuide() {
   if (!active) return null
 
   return (
-    <section
-      id="esercizi"
-      aria-labelledby="esercizi-title"
-      className="mx-auto max-w-[90rem] px-4 py-24 sm:px-6 lg:px-10 lg:py-36"
-    >
-      <Reveal>
-        <h2 id="esercizi-title" className="font-display text-[clamp(3.4rem,6.2vw,6.25rem)] text-balance">
-          {t("title")}
-        </h2>
-        <p className="font-stamp mt-6 text-xl text-primary sm:text-2xl">{t("lead")}</p>
-      </Reveal>
-
-      <div role="tablist" aria-label={t("title")} className="mt-10 flex flex-wrap gap-2">
+    <div>
+      <div role="tablist" aria-label={t("title")} className="flex flex-wrap gap-2">
         {exercises.groups.map((g) => (
           <button
             key={g.id}
@@ -125,24 +114,24 @@ export function ExerciseGuide() {
         ))}
       </div>
 
-      <ul id="guide-panel" role="tabpanel" aria-labelledby={`guide-tab-${group}`} className="mt-8 border-t-2 border-foreground">
+      <ul id="guide-panel" role="tabpanel" aria-labelledby={`guide-tab-${group}`} className="mt-6 border-t-2 border-foreground">
         {active.exercises.map((e) => (
-          <li key={e.name.it} className="grid gap-6 border-b border-sheet-line py-8 sm:grid-cols-[16rem_1fr] sm:gap-10 lg:grid-cols-[22rem_1fr]">
+          <li key={e.name.it} className="grid gap-5 border-b border-sheet-line py-6 sm:grid-cols-[13rem_1fr] sm:gap-7">
             {e.photo ? (
               <div className="relative aspect-[3/2] overflow-hidden rounded-[var(--radius)] bg-muted">
-                <Image src={e.photo} alt={e.name[locale]} fill sizes="(min-width: 1024px) 22rem, (min-width: 640px) 16rem, 100vw" className="object-cover" />
+                <Image src={e.photo} alt={e.name[locale]} fill sizes="(min-width: 640px) 13rem, 100vw" className="object-cover" />
               </div>
             ) : (
               <div aria-hidden className="hidden sm:block" />
             )}
             <div>
-              <h3 className="font-display text-[clamp(2.2rem,4.2vw,3.5rem)]">{e.name[locale]}</h3>
-              <p className="mt-3 max-w-[62ch] text-lg leading-relaxed">{e.how[locale]}</p>
+              <h3 className="font-display text-[clamp(1.75rem,4vw,2.5rem)]">{e.name[locale]}</h3>
+              <p className="mt-2 max-w-[62ch] text-base leading-relaxed sm:text-lg">{e.how[locale]}</p>
             </div>
           </li>
         ))}
       </ul>
       <p className="mt-6 text-base font-semibold">{t("ask")}</p>
-    </section>
+    </div>
   )
 }

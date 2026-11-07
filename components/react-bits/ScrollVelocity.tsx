@@ -299,7 +299,7 @@ function VelocityText({
       onClickCapture={draggable ? handleClickCapture : undefined}
     >
       <motion.div
-        className={`${scrollerClassName} flex whitespace-nowrap text-center font-sans text-4xl font-bold tracking-[-0.02em] drop-shadow md:text-[5rem] md:leading-[5rem]`}
+        className={`${scrollerClassName} flex whitespace-nowrap text-center`}
         style={{ x, skewX, scaleY, ...typeStyle, ...scrollerStyle }}
       >
         {spans}

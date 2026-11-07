@@ -6,9 +6,6 @@ import { useLocale, useTranslations } from "next-intl"
 import { useId, useState } from "react"
 
 import { Barbell, fitsSleeve, PLATE_KG } from "@/components/motion/barbell"
-import { Reveal } from "@/components/motion/reveal"
-import { InstallButton } from "@/components/site/app-extras"
-import { PersonalBests, RestTimer } from "@/components/site/floor-tools"
 import { ShareButton } from "@/components/site/share-card"
 import { Choice, Sheet } from "@/components/site/sheet"
 
@@ -43,46 +40,8 @@ const PERCENTS = [
   [60, "16–20"],
 ] as const
 
-/** For the young lifters: the plate maths and the percentages, on two schede. */
-export function Tools() {
-  const t = useTranslations("tools")
-
-  return (
-    <section
-      id="strumenti"
-      aria-labelledby="strumenti-title"
-      className="mx-auto max-w-[90rem] px-4 py-24 sm:px-6 lg:px-10 lg:py-36"
-    >
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
-        <Reveal className="lg:col-span-4">
-          <div className="lg:sticky lg:top-28">
-            <h2 id="strumenti-title" className="font-display text-[clamp(3.4rem,6.2vw,6.25rem)] text-balance">
-              {t("title")}
-            </h2>
-            <p className="font-stamp mt-6 text-xl text-balance text-primary sm:text-2xl">{t("lead")}</p>
-            <InstallButton className="mt-8" />
-          </div>
-        </Reveal>
-        <div className="grid gap-10 lg:col-span-8">
-          <Reveal>
-            <RestTimer />
-          </Reveal>
-          <Reveal>
-            <PlateCalculator />
-          </Reveal>
-          <Reveal>
-            <OneRepMax />
-          </Reveal>
-          <Reveal>
-            <PersonalBests />
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function PlateCalculator() {
+/** Plate maths for the young lifters: the total, the bar, what goes on each side. */
+export function PlateCalculator() {
   const t = useTranslations("tools.plates")
   const num = new Intl.NumberFormat(useLocale())
   const [target, setTarget] = useState(100)
@@ -156,7 +115,7 @@ function PlateCalculator() {
         <div className="grid gap-4 border-t border-sheet-line pt-6 sm:grid-cols-[1fr_auto] sm:items-baseline">
           <div>
             <p className="font-stamp text-sm text-foreground/70">{t("perSide")}</p>
-            <p className="font-display tabular mt-1 text-[clamp(1.8rem,3.6vw,2.75rem)] leading-none">
+            <p className="font-display tabular mt-1 text-[clamp(1.5rem,3.6vw,2.75rem)] leading-none">
               {counts.length
                 ? counts.map(([kg, n]) => `${n > 1 ? `${n} × ` : ""}${num.format(kg)}`).join("  +  ")
                 : "—"}
@@ -177,7 +136,8 @@ function PlateCalculator() {
   )
 }
 
-function OneRepMax() {
+/** Epley's estimate and the percentages under it. */
+export function OneRepMax() {
   const t = useTranslations("tools.orm")
   const s = useTranslations("share")
   const num = new Intl.NumberFormat(useLocale())
@@ -195,7 +155,7 @@ function OneRepMax() {
           <Field id={repsId} label={t("reps")} value={reps} step={1} min={1} max={12} onChange={setReps} />
           <div className="border-t-2 border-foreground pt-4">
             <p className="font-stamp text-sm text-foreground/70">{t("result")}</p>
-            <p className="font-display tabular mt-1 text-[clamp(3rem,7vw,5rem)] leading-none text-primary" aria-live="polite">
+            <p className="font-display tabular mt-1 text-[clamp(2.25rem,7vw,5rem)] leading-none text-primary" aria-live="polite">
               {round(max)}
               <span className="ml-1 text-[0.4em] text-foreground">kg</span>
             </p>

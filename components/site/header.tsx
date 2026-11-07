@@ -144,7 +144,7 @@ export function Header() {
           <RailBarbell
             plates={PLATES}
             loaded={loaded}
-            className="w-20 sm:w-32 xl:w-40"
+            className="hidden w-12 min-[400px]:block min-[430px]:w-20 sm:w-32 xl:w-40"
           />
           <span className="hidden sm:inline">
             <Tally kg={kg} />
@@ -157,7 +157,7 @@ export function Header() {
             locale={locale === "it" ? "en" : "it"}
             className={cn(
               buttonVariants({ variant: "ghost", size: "sm" }),
-              "font-stamp h-9 rounded-full px-3"
+              "font-stamp h-9 rounded-full px-2 sm:px-3"
             )}
             aria-label={t("language")}
           >
@@ -215,7 +215,7 @@ export function Header() {
                       <a
                         href={l.href}
                         onClick={() => setOpen(false)}
-                        className="font-display block py-2 text-5xl transition-colors hover:text-primary"
+                        className="font-display block py-1.5 text-4xl transition-colors hover:text-primary"
                       >
                         {l.label}
                       </a>

@@ -42,7 +42,7 @@ export function PlateFace({ value, label, tone = "azure", className }: PlateFace
           fontSize="19"
           fontWeight="700"
           letterSpacing="3.2"
-          style={{ fontStretch: "75%", textTransform: "uppercase" }}
+          style={{ textTransform: "uppercase" }}
         >
           <textPath href={`#rim-${uid}`}>{rim.toUpperCase()}</textPath>
         </text>
@@ -53,7 +53,7 @@ export function PlateFace({ value, label, tone = "azure", className }: PlateFace
         className="absolute inset-[24%] flex items-center justify-center"
         style={{ color: ink }}
       >
-        <span className="font-display tabular -translate-y-[0.06em] text-[clamp(3.5rem,9vw,7.5rem)] leading-none">
+        <span className="font-display tabular -translate-y-[0.06em] text-[clamp(2.6rem,9vw,7.5rem)] leading-none">
           <CountUp to={value} duration={1.6} easing="expo" mode="roll" />
         </span>
       </div>

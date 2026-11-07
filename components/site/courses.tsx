@@ -10,13 +10,15 @@ import { IsoPlatformScene } from "@/components/iso/iso-platform-scene"
 import { Reveal } from "@/components/motion/reveal"
 import { Stamp } from "@/components/motion/stamp"
 import { askAbout } from "@/components/site/contact"
-import { CourseFinder } from "@/components/site/course-finder"
+import { ToolLauncher } from "@/components/site/locker"
 import { courses } from "@/data/site"
 import { cn } from "@/lib/utils"
 
 /** The course list as the training card ("scheda") an instructor hands you. */
 export function Courses() {
   const t = useTranslations("courses")
+  const f = useTranslations("finder")
+  const l = useTranslations("locker")
   const list = useRef<HTMLOListElement>(null)
   const bar = useSmithBar(list)
 
@@ -24,12 +26,12 @@ export function Courses() {
     <section
       id="corsi"
       aria-labelledby="corsi-title"
-      className="mx-auto max-w-[90rem] px-4 py-24 sm:px-6 lg:px-10 lg:py-36"
+      className="mx-auto max-w-[90rem] px-4 py-16 sm:px-6 sm:py-24 lg:px-10 lg:py-36"
     >
-      <div className="grid gap-12 lg:grid-cols-12">
+      <div className="grid gap-8 sm:gap-12 lg:grid-cols-12">
         <Reveal className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">
-            <h2 id="corsi-title" className="font-display text-[clamp(4rem,9vw,8.5rem)]">
+            <h2 id="corsi-title" className="font-display text-[clamp(2.75rem,8.5vw,8rem)]">
               {t("title")}
             </h2>
             {/* The weights floor: the plates go on, two pulls, the bar comes off. */}
@@ -76,7 +78,7 @@ export function Courses() {
               <SmithTrack bar={bar} layer="machine" />
             </div>
           </div>
-          <CourseFinder />
+          <ToolLauncher id="finder" lead={f("lead")} action={l("start")} className="mt-6" />
         </Reveal>
       </div>
     </section>
@@ -105,7 +107,7 @@ function Row({
       <span className="tabular font-stamp text-sm text-foreground/60 sm:text-base">
         {String(index + 1).padStart(2, "0")}
       </span>
-      <span className="font-display flex min-w-0 flex-wrap items-center gap-x-3 gap-y-2 pr-2 text-[clamp(1.6rem,3.4vw,2.75rem)] leading-[1] break-words">
+      <span className="font-display flex min-w-0 flex-wrap items-center gap-x-3 gap-y-2 pr-2 text-[clamp(1.25rem,5.6vw,2.75rem)] leading-[1.1] break-words sm:text-[clamp(1.6rem,3.4vw,2.75rem)]">
         <span className="relative">
           {label}
           <span

@@ -9,7 +9,7 @@ import { IsoSeaScene } from "@/components/iso/iso-sea-scene"
 import { Reveal } from "@/components/motion/reveal"
 import { ClosureNotice } from "@/components/site/closure-notice"
 import { OpenStatus } from "@/components/site/open-status"
-import { VisitPlanner } from "@/components/site/visit-planner"
+import { ToolLauncher } from "@/components/site/locker"
 import { contact } from "@/data/site"
 import { hourRows, romeWeekday, rowLabel } from "@/lib/hours"
 import { cn } from "@/lib/utils"
@@ -21,6 +21,7 @@ export function Visit() {
   const days = t.raw("days") as string[]
   const w = useTranslations("where")
   const s = useTranslations("status")
+  const l = useTranslations("locker")
   // Today's weekday in Follonica; null during SSR so the markup stays stable.
   const today = useSyncExternalStore(noop, romeWeekday, () => null)
 
@@ -28,12 +29,12 @@ export function Visit() {
     <section
       id="orario"
       aria-labelledby="orario-title"
-      className="rubber mx-0 overflow-hidden rounded-[calc(var(--radius)*2)] py-24 text-platform-foreground sm:py-32 lg:mx-3"
+      className="rubber mx-0 overflow-hidden rounded-[calc(var(--radius)*2)] py-16 text-platform-foreground sm:py-32 lg:mx-3"
     >
-      <div className="mx-auto grid max-w-[90rem] gap-16 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
+      <div className="mx-auto grid max-w-[90rem] gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="lg:col-span-7">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
-            <h2 id="orario-title" className="font-display text-[clamp(4rem,9vw,8.5rem)]">
+            <h2 id="orario-title" className="font-display text-[clamp(2.75rem,9vw,8.5rem)]">
               {t("title")}
             </h2>
             <OpenStatus className="mb-3 text-base" />
@@ -64,7 +65,7 @@ export function Visit() {
                       </span>
                     ) : null}
                   </dt>
-                  <dd className="font-display tabular text-[clamp(3rem,7vw,6rem)]">
+                  <dd className="font-display tabular text-[clamp(2.25rem,7vw,6rem)]">
                     {r.time ? (
                       <>
                         {r.time[0]}
@@ -80,11 +81,11 @@ export function Visit() {
             })}
           </dl>
           {/* From the beach to the door: the 200 m, walked. */}
-          <IsoSeaScene className="mt-16 sm:mt-20" />
+          <IsoSeaScene className="mt-10 sm:mt-20" />
         </div>
 
         <Reveal className="flex flex-col lg:col-span-4 lg:col-start-9" delay={0.1}>
-          <h3 className="font-display text-[clamp(2.5rem,5vw,4.5rem)]">{w("title")}</h3>
+          <h3 className="font-display text-[clamp(2rem,5vw,4.5rem)]">{w("title")}</h3>
           <p className="mt-6 flex items-start gap-3 text-xl leading-snug font-semibold">
             <HugeiconsIcon icon={Location01Icon} className="mt-1 size-5 shrink-0 text-primary" />
             {w("address")}
@@ -119,9 +120,7 @@ export function Visit() {
             <HugeiconsIcon icon={Navigation03Icon} className="size-5" />
             {w("directions")}
           </a>
-          <div className="mt-12">
-            <VisitPlanner />
-          </div>
+          <ToolLauncher id="planner" tone="rubber" lead={l("items.planner")} action={l("plan")} className="mt-12" />
         </Reveal>
       </div>
     </section>

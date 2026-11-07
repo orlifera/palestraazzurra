@@ -1,4 +1,14 @@
+"use client"
+
+import { createContext, useContext } from "react"
+
 import { cn } from "@/lib/utils"
+
+/**
+ * Inside the locker drawer the drawer is the card: a scheda whose title
+ * repeats the drawer's drops its printed header and its edge.
+ */
+export const DrawerTitle = createContext<string | null>(null)
 
 /**
  * The scheda: the site's one card, a training sheet with its printed ink
@@ -15,6 +25,8 @@ export function Sheet({
   className?: string
   children: React.ReactNode
 }) {
+  const drawer = useContext(DrawerTitle)
+  if (drawer !== null && title === drawer && !aside) return <div className={className}>{children}</div>
   return (
     <div className={cn("overflow-hidden rounded-[var(--radius)] border-2 border-foreground bg-background", className)}>
       <div className="flex flex-wrap items-baseline justify-between gap-2 bg-foreground px-5 py-3 text-background sm:px-7">

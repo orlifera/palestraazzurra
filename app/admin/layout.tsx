@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
-import { Open_Sans } from "next/font/google"
+import { Sulphur_Point } from "next/font/google"
 
 import "../globals.css"
 import { cn } from "@/lib/utils"
 
-const openSans = Open_Sans({
+const sulphurPoint = Sulphur_Point({
   subsets: ["latin"],
-  axes: ["wdth"],
-  variable: "--font-open-sans",
+  weight: ["300", "400", "700"],
+  variable: "--font-sulphur-point",
   display: "swap",
 })
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function AdminLayout({ children }: LayoutProps<"/admin">) {
   return (
-    <html lang="it" className={cn("antialiased", openSans.variable)}>
+    <html lang="it" className={cn("antialiased", sulphurPoint.variable)}>
       <body className="min-h-svh bg-background text-foreground">{children}</body>
     </html>
   )

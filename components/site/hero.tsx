@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 
 import { Barbell } from "@/components/motion/barbell"
 import { ClosureNotice } from "@/components/site/closure-notice"
+import { afterFirstLoad } from "@/components/site/first-load-shell"
 import { Equipment } from "@/components/site/equipment"
 import { OpenStatus } from "@/components/site/open-status"
 import { buttonVariants } from "@/components/ui/button"
@@ -35,16 +36,22 @@ function useLoadSequence() {
 
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = []
-    plates.forEach((_, i) => {
-      timers.push(setTimeout(() => setLoaded(i + 1), 400 + i * 220))
+    // The first load happens behind the intro, so it waits for the intro to clear.
+    const cancel = afterFirstLoad(() => {
+      plates.forEach((_, i) => {
+        timers.push(setTimeout(() => setLoaded(i + 1), 400 + i * 220))
+      })
+      timers.push(
+        setTimeout(() => setLifted(true), 400 + plates.length * 220 + 450)
+      )
     })
-    timers.push(
-      setTimeout(() => setLifted(true), 400 + plates.length * 220 + 450)
-    )
     window.dispatchEvent(
       new CustomEvent<number>(BAR_EVENT, { detail: 2 * (sideKg(plates) - sideKg(LOADS[0])) })
     )
-    return () => timers.forEach(clearTimeout)
+    return () => {
+      cancel()
+      timers.forEach(clearTimeout)
+    }
   }, [plates])
 
   // Strip the bar, then the effect loads the next weight onto it.
@@ -63,11 +70,11 @@ export function Hero() {
   const { plates, loaded, lifted, next, kg } = useLoadSequence()
 
   return (
-    <section id="top" className="relative flex flex-col overflow-x-clip pt-24 lg:h-svh lg:min-h-[44rem] lg:pt-22">
-      <div className="mx-auto grid w-full max-w-[90rem] gap-10 px-4 sm:px-6 lg:mb-8 lg:min-h-0 lg:flex-1 lg:grid-cols-[1.4fr_1fr] lg:gap-14 lg:px-10">
+    <section id="top" className="relative flex flex-col overflow-x-clip pt-20 sm:pt-24 lg:h-svh lg:min-h-[44rem] lg:pt-22">
+      <div className="mx-auto grid w-full max-w-[90rem] gap-8 px-4 sm:gap-10 sm:px-6 lg:mb-8 lg:min-h-0 lg:flex-1 lg:grid-cols-[1.4fr_1fr] lg:gap-14 lg:px-10">
         <div className="flex min-w-0 flex-col">
           {/* Named outright: the bar between the words is a button. */}
-          <h1 aria-label="Palestra Azzurra" className="font-display relative text-[clamp(4.6rem,min(12vw,15svh),12rem)]">
+          <h1 aria-label="Palestra Azzurra" className="font-display relative text-[clamp(4.25rem,min(14vw,16.5svh),14rem)]">
             <motion.span
               className="block"
               animate={{ y: lifted ? -10 : 0 }}
@@ -89,7 +96,7 @@ export function Hero() {
                 {b("hint", { kg })}
               </span>
             </button>
-            <span className="-mt-[0.1em] block text-primary">Azzurra</span>
+            <span className="mt-[0.06em] block text-primary">Azzurra</span>
           </h1>
 
           <div className="mt-6 grid gap-8 sm:grid-cols-[1fr_auto] sm:items-end">
@@ -101,7 +108,7 @@ export function Hero() {
                 {t("motto")}
               </p>
               <p
-                className="hero-rise mt-4 text-lg leading-relaxed"
+                className="hero-rise mt-3 text-base sm:mt-4 sm:text-lg leading-relaxed"
                 style={{ "--d": "260ms" } as React.CSSProperties}
               >
                 <strong className="font-bold">{t("lead")}</strong> {t("sub")}{" "}
@@ -149,7 +156,7 @@ export function Hero() {
         </div>
 
         <div className="relative lg:pt-2 lg:pb-2">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius)] bg-muted lg:aspect-auto lg:h-full lg:min-h-[28rem]">
+          <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[4/5] rounded-[var(--radius)] bg-muted lg:aspect-auto lg:h-full lg:min-h-[28rem]">
             <Image
               src="/images/staff/team.webp"
               alt={t("photoAlt")}

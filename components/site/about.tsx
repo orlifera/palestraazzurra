@@ -9,10 +9,10 @@ export function About() {
   const t = useTranslations("about")
 
   return (
-    <section id="chi-siamo" className="mx-auto max-w-[90rem] px-4 pt-24 pb-28 sm:px-6 lg:px-10 lg:pt-36 lg:pb-40">
-      <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+    <section id="chi-siamo" className="mx-auto max-w-[90rem] px-4 pt-16 pb-20 sm:px-6 sm:pt-24 sm:pb-28 lg:px-10 lg:pt-36 lg:pb-40">
+      <div className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-10">
         <Reveal className="lg:col-span-8">
-          <h2 className="font-display text-[clamp(2.8rem,6.4vw,6rem)] text-balance">
+          <h2 className="font-display text-[clamp(2.2rem,6.4vw,6rem)] text-balance">
             {t("title")}
           </h2>
         </Reveal>

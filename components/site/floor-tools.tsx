@@ -111,7 +111,16 @@ export function RestTimer() {
             className="font-display tabular absolute inset-0 flex items-center justify-center pb-1 text-6xl text-background"
             aria-hidden
           >
-            {mmss(left)}
+            {/* Sulphur Point has no tabular figures: fixed cells stop the clock jittering. */}
+            {[...mmss(left)].map((c, i) =>
+              c === ":" ? (
+                c
+              ) : (
+                <span key={i} className="inline-block w-[0.52em] text-center">
+                  {c}
+                </span>
+              )
+            )}
           </span>
         </div>
 
@@ -233,7 +242,7 @@ export function PersonalBests() {
             return (
               <li key={l} className="rounded-[var(--radius)] border-2 border-sheet-line p-3 sm:p-4">
                 <p className="font-stamp text-xs text-foreground/70">{t(`lifts.${l}`)}</p>
-                <p className="font-display tabular mt-1 text-[clamp(1.8rem,4vw,2.75rem)] leading-none">
+                <p className="font-display tabular mt-1 text-[clamp(1.5rem,4vw,2.75rem)] leading-none">
                   {b ? num.format(b.kg) : "—"}
                   {b ? <span className="ml-0.5 text-[0.45em]">kg</span> : null}
                 </p>

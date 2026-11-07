@@ -1,11 +1,12 @@
 import type { Metadata } from "next"
-import { Open_Sans } from "next/font/google"
+import { Big_Shoulders, Sulphur_Point } from "next/font/google"
 import { notFound } from "next/navigation"
 import { hasLocale, NextIntlClientProvider } from "next-intl"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 
 import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { FirstLoad } from "@/components/site/first-load"
 import { MotionProvider } from "@/components/motion/motion-provider"
 import { SmoothScroll } from "@/components/motion/smooth-scroll"
 import { Toaster } from "@/components/ui/sonner"
@@ -13,10 +14,19 @@ import { routing } from "@/i18n/routing"
 import { SITE_URL } from "@/lib/json-ld"
 import { cn } from "@/lib/utils"
 
-const openSans = Open_Sans({
+const sulphurPoint = Sulphur_Point({
   subsets: ["latin"],
-  axes: ["wdth"],
-  variable: "--font-open-sans",
+  weight: ["300", "400", "700"],
+  variable: "--font-sulphur-point",
+  display: "swap",
+})
+
+/** The display voice: condensed, heavy, cut like the lettering on a plate. */
+const bigShoulders = Big_Shoulders({
+  subsets: ["latin"],
+  weight: "variable",
+  axes: ["opsz"],
+  variable: "--font-big-shoulders",
   display: "swap",
 })
 
@@ -59,9 +69,10 @@ export default async function LocaleLayout({
       lang={locale}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={cn("scroll-smooth antialiased", openSans.variable)}
+      className={cn("scroll-smooth antialiased", sulphurPoint.variable, bigShoulders.variable)}
     >
       <body>
+        <FirstLoad />
         <NextIntlClientProvider>
           <ThemeProvider>
             <MotionProvider>

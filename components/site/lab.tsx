@@ -25,9 +25,9 @@ export function Lab() {
     <section
       id="lab"
       aria-labelledby="lab-title"
-      className="rubber overflow-hidden rounded-[calc(var(--radius)*2)] py-24 text-platform-foreground sm:py-32 lg:mx-3"
+      className="rubber overflow-hidden rounded-[calc(var(--radius)*2)] py-16 text-platform-foreground sm:py-32 lg:mx-3"
     >
-      <div className="mx-auto grid max-w-[90rem] gap-14 px-4 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
+      <div className="mx-auto grid max-w-[90rem] gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="lg:col-span-6">
           <Reveal>
             <Image
@@ -37,7 +37,7 @@ export function Lab() {
               height={491}
               className="h-auto w-36 sm:w-44"
             />
-            <h2 id="lab-title" className="font-display mt-10 text-[clamp(3.2rem,7vw,6.5rem)] text-balance">
+            <h2 id="lab-title" className="font-display mt-10 text-[clamp(2.4rem,7vw,6.5rem)] text-balance">
               {t("title")}
             </h2>
             <p className="mt-5 text-2xl leading-snug font-bold text-balance text-primary sm:text-3xl">{t("born")}</p>
@@ -64,11 +64,11 @@ export function Lab() {
       </div>
 
       {/* The method: OUR and YOUR trade places. */}
-      <div className="mx-auto mt-24 max-w-[90rem] px-4 sm:mt-32 sm:px-6 lg:px-10">
-        <p className="font-display text-[clamp(2.2rem,5.4vw,5rem)] leading-[1.02] text-balance">
+      <div className="mx-auto mt-16 max-w-[90rem] px-4 sm:mt-32 sm:px-6 lg:px-10">
+        <p className="font-display text-[clamp(1.75rem,5.4vw,5rem)] leading-[1.02] text-balance">
           {swap("methodA")}
         </p>
-        <p className="font-display mt-4 text-right text-[clamp(2.2rem,5.4vw,5rem)] leading-[1.02] text-balance">
+        <p className="font-display mt-4 text-right text-[clamp(1.75rem,5.4vw,5rem)] leading-[1.02] text-balance">
           {swap("methodB")}
         </p>
       </div>
@@ -78,7 +78,7 @@ export function Lab() {
         <IsoLabScene />
       </div>
 
-      <div className="font-display mt-24 border-y border-platform-line py-6 text-[clamp(2rem,4.4vw,3.75rem)] sm:mt-32">
+      <div className="font-display mt-16 border-y border-platform-line py-6 text-[clamp(2.25rem,6vw,5.25rem)] sm:mt-32">
         <ScrollVelocity
           texts={[
             <span key="s" className="flex items-center">
@@ -102,9 +102,9 @@ export function Lab() {
 
       <Gallery />
 
-      <div className="mx-auto mt-24 grid max-w-[90rem] gap-10 px-4 sm:mt-32 sm:px-6 lg:grid-cols-12 lg:px-10">
+      <div className="mx-auto mt-16 grid max-w-[90rem] gap-10 px-4 sm:mt-32 sm:px-6 lg:grid-cols-12 lg:px-10">
         <Reveal className="lg:col-span-5">
-          <p className="font-display text-[clamp(2.5rem,5vw,4.5rem)] text-primary">{t("never")}</p>
+          <p className="font-display text-[clamp(2rem,5vw,4.5rem)] text-primary">{t("never")}</p>
           <p className="font-stamp mt-6 text-lg">{t("visit")}</p>
         </Reveal>
         <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.08}>
@@ -146,10 +146,10 @@ function Gallery() {
   const g = useTranslations("gallery")
 
   return (
-    <div className="mt-24 sm:mt-32">
+    <div className="mt-16 sm:mt-32">
       <div className="mx-auto flex max-w-[90rem] flex-wrap items-end justify-between gap-4 px-4 sm:px-6 lg:px-10">
         <div>
-          <h3 className="font-display text-[clamp(2.5rem,5vw,4.5rem)]">{t("galleryTitle")}</h3>
+          <h3 className="font-display text-[clamp(2rem,5vw,4.5rem)]">{t("galleryTitle")}</h3>
           <p className="mt-3 text-lg text-platform-muted">{t("galleryLine")}</p>
         </div>
         <p className="font-stamp hidden items-center gap-2 text-sm text-platform-muted sm:flex" aria-hidden>

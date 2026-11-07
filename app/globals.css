@@ -203,8 +203,8 @@
   --color-steel-dark: var(--steel-dark);
   --color-sheet-line: var(--sheet-line);
 
-  --font-sans: var(--font-open-sans), "Open Sans", sans-serif;
-  --font-heading: var(--font-open-sans), "Open Sans", sans-serif;
+  --font-sans: var(--font-sulphur-point), "Sulphur Point", sans-serif;
+  --font-heading: var(--font-big-shoulders), "Big Shoulders", sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
 
@@ -231,6 +231,8 @@
   }
   html {
     @apply font-sans;
+    /* Sulphur Point's space is 0.45em, wide enough to break up a line. */
+    word-spacing: -0.18em;
     scroll-padding-top: 5.5rem;
     scrollbar-color: var(--primary) var(--background);
   }
@@ -252,18 +254,19 @@
   }
 }
 
+/* Plate lettering: Big Shoulders, heavy and condensed, in caps. */
 @utility font-display {
-  font-family: var(--font-open-sans), "Open Sans", sans-serif;
-  font-stretch: 75%;
-  font-weight: 800;
+  font-family: var(--font-big-shoulders), "Big Shoulders", sans-serif;
+  font-weight: 850;
+  font-optical-sizing: auto;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 0.88;
+  letter-spacing: -0.005em;
+  word-spacing: 0;
+  line-height: 0.9;
 }
 
 @utility font-stamp {
-  font-family: var(--font-open-sans), "Open Sans", sans-serif;
-  font-stretch: 75%;
+  font-family: var(--font-sulphur-point), "Sulphur Point", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;

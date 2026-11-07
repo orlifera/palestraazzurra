@@ -18,45 +18,40 @@ colors:
   destructive: "oklch(0.6188 0.2376 25.7658)"
 typography:
   display:
-    fontFamily: "Open Sans, sans-serif"
-    fontSize: "clamp(4.6rem, min(12vw, 15svh), 12rem)"
-    fontWeight: 800
-    lineHeight: 0.88
-    letterSpacing: "-0.01em"
-    fontVariation: "'wdth' 75"
+    fontFamily: "Big Shoulders, sans-serif"
+    fontSize: "clamp(4.25rem, min(14vw, 16.5svh), 14rem)"
+    fontWeight: 850
+    lineHeight: 0.9
+    letterSpacing: "-0.005em"
   headline:
-    fontFamily: "Open Sans, sans-serif"
-    fontSize: "clamp(4rem, 9vw, 8.5rem)"
-    fontWeight: 800
-    lineHeight: 0.88
-    letterSpacing: "-0.01em"
-    fontVariation: "'wdth' 75"
+    fontFamily: "Big Shoulders, sans-serif"
+    fontSize: "clamp(2.75rem, 9vw, 8.5rem)"
+    fontWeight: 850
+    lineHeight: 0.9
+    letterSpacing: "-0.005em"
   title:
-    fontFamily: "Open Sans, sans-serif"
-    fontSize: "clamp(2.4rem, 4.6vw, 4rem)"
-    fontWeight: 800
-    lineHeight: 0.88
-    letterSpacing: "-0.01em"
-    fontVariation: "'wdth' 75"
+    fontFamily: "Big Shoulders, sans-serif"
+    fontSize: "clamp(1.9rem, 4.6vw, 4rem)"
+    fontWeight: 850
+    lineHeight: 0.9
+    letterSpacing: "-0.005em"
   stamp:
-    fontFamily: "Open Sans, sans-serif"
+    fontFamily: "Sulphur Point, sans-serif"
     fontSize: "1.5rem"
     fontWeight: 700
     lineHeight: 1.33
     letterSpacing: "0.06em"
-    fontVariation: "'wdth' 75"
   body:
-    fontFamily: "Open Sans, sans-serif"
+    fontFamily: "Sulphur Point, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.625
   label:
-    fontFamily: "Open Sans, sans-serif"
+    fontFamily: "Sulphur Point, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 700
     lineHeight: 1.43
     letterSpacing: "0.06em"
-    fontVariation: "'wdth' 75"
 rounded:
   sm: "calc(1.3rem - 4px)"
   md: "calc(1.3rem - 2px)"
@@ -131,13 +126,14 @@ components:
 
 The page is a lifting platform with the member's training card (the scheda) clipped to it. White is the gym floor under strip light; near-black is the rubber platform, laid down as full-bleed rounded bands; azure is the bumper-plate colour and the stamp ink. Every recurring device is a piece of the weight room drawn literally: a knurled steel bar, plates as slabs with the system radius, programme rows ruled on hairlines and ticked with a rubber stamp.
 
-Density is low and heavy. Sections stack as blocks with deep gaps (6rem, 9rem on desktop), headlines are condensed stamped caps at very large sizes, and lists are rows on a sheet rather than tiles. Rank is shown by scale: the two numbers the gym owns (17 years, 24 degrees) are stamped huge on rolling plate faces, never set in a stat band. State is shown by a mark, not a hue change: a stamped tick means done, the racked bar of a Smith machine means "you are here".
+Density is low and heavy. Sections stack as blocks with deep gaps (4rem on phones, 9rem on desktop), headlines are heavy condensed Big Shoulders caps at very large sizes, like the lettering cast into a plate, and lists are rows on a sheet rather than tiles. Rank is shown by scale: the two numbers the gym owns (17 years, 24 degrees) are stamped huge on rolling plate faces, never set in a stat band. State is shown by a mark, not a hue change: a stamped tick means done, the racked bar of a Smith machine means "you are here".
 
 Motion is reserved for authored moments that belong to the world: plates slamming onto the hero bar and the press, the header rail loading one plate per section with a running kg tally, plate faces rolling with scroll, the balance bar settling level, stamps landing on scheda rows. Section content otherwise renders static and visible; there is no generic fade-up entrance. Under reduced motion everything is shown in its end state.
 
 **Key Characteristics:**
 - Pinned tweakcn palette: azure primary, near-black ink, white and black grounds, flat shadows, 1.3rem radius.
-- Condensed (wdth 75) Open Sans in caps as the only display voice; Open Sans regular for reading.
+- Two families: Big Shoulders (heavy, condensed, caps) for every display line; Sulphur Point, the closest available match to the logotype, for tracked-caps labels and regular reading text.
+- Interactive tools live in the locker and open on demand in a drawer; the page itself reads straight through.
 - Rubber-black platform bands with fine grain alternate with white ground.
 - Rows on hairline grids instead of card grids.
 - Physical, spring-driven motion only where a weight-room object moves.
@@ -169,30 +165,30 @@ Dark mode inverts the ground to black, lifts ink to a pale grey, and moves the p
 
 ## Typography
 
-**Display Font:** Open Sans variable at wdth 75, weight 800, uppercase (with sans-serif)
-**Body Font:** Open Sans regular (with sans-serif)
-**Label Font:** Open Sans at wdth 75, weight 700, uppercase, tracked 0.06em (the "stamp" voice)
+**Display Font:** Big Shoulders (variable, opsz axis), weight 850, uppercase, line-height 0.9 (with sans-serif)
+**Body Font:** Sulphur Point, weight 400 (with sans-serif)
+**Label Font:** Sulphur Point at weight 700, uppercase, tracked 0.06em (the "stamp" voice)
 
-**Character:** One family pulled two ways. Condensed heavy caps read as lettering moulded into a bumper plate; the regular cut at reading sizes stays plain and generous for an audience that includes older adults.
+**Character:** Big Shoulders is the weight room's voice: a condensed industrial grotesque, set heavy and in caps, so headings read like the stamped lettering on bumper plates and machine decals. It replaced Sulphur Point for display because Sulphur Point, even at 700, read thin and rounded. Sulphur Point stays for everything else, chosen to carry the logotype. No font file exists for the wordmark and no Google Font matches it, so Sulphur Point is a chosen approximation, not the logo's font: flat stroke ends, a single-storey `a` with a tail, an arched `r`, but much lighter than the logo. Mixed case keeps those letters visible, and tracked caps echo the "HEALTH & FITNESS" line in the logo. It ships in 300, 400 and 700 only, so medium weights render as 400 and semibold as 700. The family's space is 0.45em wide, so the root sets word-spacing to -0.18em.
 
 ### Hierarchy
-- **Display** (800, clamp(4.6rem, min(12vw, 15svh), 12rem), 0.88): the hero name only. The barbell sits inside the heading between the two words.
-- **Headline** (800, clamp(4rem, 9vw, 8.5rem), 0.88): section titles (Corsi, Staff, Orari). Narrower sections step down the same clamp shape (Contatti clamp(3.4rem, 6.2vw, 6.25rem); Chi siamo clamp(2.8rem, 6.4vw, 6rem)). The footer tagline and scroll-velocity marquees run at the same voice up to 12rem.
-- **Title** (800, clamp(2.4rem, 4.6vw, 4rem), 0.88): coach names, course rows (clamp(1.6rem, 3.4vw, 2.75rem), line-height 1), "Dove siamo".
+- **Display** (850 caps, clamp(4.25rem, min(14vw, 16.5svh), 14rem), 0.9): the hero name only. The barbell sits inside the heading between the two words.
+- **Headline** (850 caps, clamp(2.75rem, 9vw, 8.5rem), 0.9): section titles (Corsi, Staff, Orari). Narrower sections step down the same clamp shape (Contatti clamp(2.5rem, 6.2vw, 6.25rem); Chi siamo clamp(2.2rem, 6.4vw, 6rem)). The footer tagline and scroll-velocity marquees run at the same voice up to 15rem; the Attrezzi title runs to 11rem.
+- **Title** (850 caps, clamp(1.9rem, 4.6vw, 4rem), 0.9): coach names, course rows (clamp(1.6rem, 3.4vw, 2.75rem), line-height 1), "Dove siamo".
 - **Stamp** (700, 1.25rem to 1.5rem, tracked 0.06em, caps): the motto under the hero and the one-line lead under a section title.
 - **Body** (400, 1.125rem, 1.625): running text, capped at 48 to 62ch. Lead paragraphs step to 1.25 to 1.5rem semibold.
 - **Label** (700, 0.75rem to 0.875rem, tracked 0.06em, caps): field labels, scheda column heads, chips, footer column heads, the kg tally.
 
-Numbers that matter (hours, phone, row numbers, the kg tally, plate counters) use tabular numerals.
+Sulphur Point has no tabular figures, so the `tabular` utility has no effect in it. A number that changes in place, like the rest timer, sets each digit in a fixed-width cell.
 
 ### Named Rules
-**The Stamped Caps Rule.** Every heading is condensed 800 caps at line-height 0.88. There is no second display face and no sentence-case heading.
+**The Plate Lettering Rule.** Every heading is Big Shoulders 850 in caps at line-height 0.9, through the `font-display` utility. Labels and leads use the Sulphur Point stamp voice (700, tracked caps). Body is Sulphur Point regular. There is no third family.
 
-**The Scale Is Rank Rule.** Importance is expressed by size, not by boxes: the gym's numbers are stamped on plates at clamp(3.5rem, 9vw, 7.5rem), hours are set as display numerals at clamp(3rem, 7vw, 6rem).
+**The Scale Is Rank Rule.** Importance is expressed by size, not by boxes: the gym's numbers are stamped on plates at clamp(2.6rem, 9vw, 7.5rem), hours are set as display numerals at clamp(2.25rem, 7vw, 6rem).
 
 ## Layout
 
-A centred container of 90rem with side gutters of 1rem, 1.5rem from 640px and 2.5rem from 1024px. Sections use a 12-column grid with a 2.5rem gap on desktop, almost always split asymmetrically (4/8, 5/7, 6/5 with an empty column, 7/4). Vertical rhythm is deliberately heavy: 6rem section padding on phones, 9rem on desktop.
+A centred container of 90rem with side gutters of 1rem, 1.5rem from 640px and 2.5rem from 1024px. Sections use a 12-column grid with a 2.5rem gap on desktop, almost always split asymmetrically (4/8, 5/7, 6/5 with an empty column, 7/4). Vertical rhythm is deliberately heavy: 4rem section padding on phones, 6rem from 640px, 9rem on desktop.
 
 Platform bands break the container: they run full-bleed, with a 2.6rem top radius where they rise out of the page (method, footer) and fully rounded with a 0.75rem side inset on desktop where they float as slabs (Azzurra Lab, hours). Their content returns to the 90rem container.
 
@@ -233,6 +229,11 @@ Heavy, rounded and short of words.
 - **The scheda:** the only card. 1.3rem radius, 2px ink border, white (courses) or chalk card (contact form) body, and an ink header strip printed with stamp caps (title left, gym name right). Rows are a three-column grid (number, item, tick) on sheet-line hairlines.
 - **Photos:** 1.3rem radius, chalk muted placeholder, object-fit cover.
 
+### Locker and drawer
+- **Locker** (`#attrezzi`, components/site/locker.tsx): two racks of rows, "In sala" and "Prima di venire", each under a 2px ink rule. A row shows the tool name in display caps, one line on what it does, a stamp-caps "Apri", and a face-on azure bumper plate that turns a quarter on hover.
+- **Drawer:** a right-hand panel up to 44rem wide, inset 12px with a 1.95rem radius from 640px and full-screen on phones. It has an ink header holding the group label, the tool name in display caps, the line and a round close button. Each tool's code loads the first time it is opened. Once opened it stays mounted, so a running timer or a half-filled scheda survives a close. A scheda whose title matches the drawer's drops its own header. The visit planner opens on rubber. A link inside the drawer to a page section closes the drawer, then scrolls there.
+- **Tool launcher:** a 2px ink (or platform-line on rubber) slab with the tool name, a lead and an azure pill holding an ink plate mark. It sits where a tool belongs: the finder under the courses, the planner on the hours band, the scheda builder beside the contact form.
+
 ### Inputs / Fields
 - **Style:** 48px tall, 2px sheet-line stroke, white fill, xl radius, 1rem text; labels above in stamp caps with an azure asterisk for required.
 - **Focus:** stroke turns azure with a soft azure ring.
@@ -241,7 +242,7 @@ Heavy, rounded and short of words.
 
 ### Navigation
 - **Desktop:** the floating header bar holds the logo, semibold 0.875rem pill links (hover: azure wash fill with azure text), the loading barbell rail with its kg tally, the language and theme switches, and the primary "Scrivici" pill.
-- **Mobile:** a call pill and a menu icon. The menu opens as a full-height rubber sheet from the right with links in display caps at 3rem, the loaded barbell and a full-width call button at the foot.
+- **Mobile:** a call pill and a menu icon. The menu opens as a full-height rubber sheet from the right with links in display caps at 2.25rem, the loaded barbell and a full-width call button at the foot.
 
 ### Barbell (signature)
 A side-view SVG bar: knurled shaft, steel sleeves and collars, plates drawn to real proportions (bumpers at 10 kg and up share one diameter; 25/20 kg azure, 15 kg ink, 10 kg steel dark, 5 and 2.5 kg steel). Plates slide on with a spring, the ends whip down on each landing (the clank), and the hero bar presses up with the headline. The header carries a compact unstamped copy that loads one plate per section passed.
@@ -264,7 +265,8 @@ Rubber-grain ink slab with white text, platform-muted secondary text and platfor
 ## Do's and Don'ts
 
 ### Do:
-- **Do** set every heading in condensed 800 caps (wdth 75) at line-height 0.88.
+- **Do** set every heading with `font-display` (Big Shoulders 850, caps, line-height 0.9).
+- **Do** keep interactive tools in the locker, closed until asked for. Offer one in context with a `ToolLauncher` slab instead of placing it on the page.
 - **Do** keep the 1.3rem radius on every slab (photos, cards, plates, header) and use full pills for controls.
 - **Do** present lists as rows on a scheda: ink top rule, sheet-line hairlines, a number column and a mark column.
 - **Do** show completion with a stamp and position with the Smith track's racked bar, not with a colour change alone.
@@ -277,5 +279,6 @@ Rubber-grain ink slab with white text, platform-muted secondary text and platfor
 - **Don't** set reading text in azure on a white ground (2.9:1); keep it in ink.
 - **Don't** lay content out as equal card grids or stat bands; use rows, plates and scale.
 - **Don't** add generic fade-up or scroll-reveal entrances to section content.
-- **Don't** introduce a second display face or set headings in sentence case.
+- **Don't** introduce a third family or set display lines in mixed case.
+- **Don't** put a calculator, quiz, map or planner inline on the page.
 - **Don't** use azure as a section background; the rubber platform is the only dark band.

@@ -51,7 +51,7 @@ The website of Palestra Azzurra, a gym in Follonica (GR) run by a 23-year-old ow
 
 - Name: Palestra Azzurra. Sub-brand: Azzurra Lab.
 - Existing logos (black and white) are in `public/brand/`.
-- Pinned palette, supplied by the user: azure primary oklch(0.6723 0.1606 244.9955), near-black ink oklch(0.1884 0.0128 248.5103), white and black grounds, Open Sans, 1.3rem radius, flat shadows. It has light and dark variants.
+- Pinned palette, supplied by the user: azure primary oklch(0.6723 0.1606 244.9955), near-black ink oklch(0.1884 0.0128 248.5103), white and black grounds, Sulphur Point (closest available match to the logotype, replacing Open Sans), 1.3rem radius, flat shadows. It has light and dark variants.
 - Voice: direct, motivational and Italian ("Il movimento è vita", "Mai arrendersi", "Credi in te stesso"). Keep the existing copy.
 
 ## Evidence on Hand

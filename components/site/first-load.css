@@ -1,0 +1,227 @@
+/*
+ * The first-load intro: the shark swims in, grins, dives; then its fin slices
+ * across the middle of the screen and the blue parts along the cut to show the
+ * site. All CSS, so it starts with the first paint instead of waiting for
+ * hydration, and clears itself even if the JavaScript never arrives.
+ *
+ * Timeline: 0-0.95s swim in, 0.95-1.4s grin and glint, 1.4-1.8s dive,
+ * 1.7-2.25s slice, 2.2-2.7s part, 2.75s gone.
+ * Keep the slice start in step with FIRST_LOAD_SKIP_TO_MS in first-load-shell.tsx.
+ *
+ * transform-origin values on SVG parts are in the drawing's own units
+ * (the logo's coordinates, see first-load-art.ts).
+ */
+.fl {
+  --fl-ease-slice: cubic-bezier(0.6, 0, 0.3, 1);
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  touch-action: none;
+  animation: fl-done 0.01s linear 2.75s forwards;
+}
+.fl[hidden] {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fl {
+    display: none;
+  }
+}
+
+/* The hero's own entrance waits until there is something to see it. */
+@media (prefers-reduced-motion: no-preference) {
+  body:has(#first-load:not([hidden])) .hero-rise {
+    animation-play-state: paused;
+  }
+}
+
+/* The water: two halves that overlap slightly at the middle, so no seam shows before the cut. */
+.fl-half {
+  position: absolute;
+  inset-inline: 0;
+  height: 50.5%;
+  background: var(--primary);
+}
+.fl-half-top {
+  top: 0;
+  animation:
+    fl-cut-top 0.55s var(--fl-ease-slice) 1.7s both,
+    fl-part-top 0.5s cubic-bezier(0.65, 0, 0.35, 1) 2.2s forwards;
+}
+.fl-half-bottom {
+  bottom: 0;
+  animation:
+    fl-cut-bottom 0.55s var(--fl-ease-slice) 1.7s both,
+    fl-part-bottom 0.5s cubic-bezier(0.65, 0, 0.35, 1) 2.2s forwards;
+}
+
+.fl-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.fl-swim {
+  width: min(86vw, 44rem);
+  animation: fl-swim 0.95s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.fl-bob {
+  animation: fl-bob 0.95s ease-in-out both;
+}
+.fl-pose {
+  animation: fl-pose 1.8s both;
+}
+.fl-shark {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.fl-pectoral {
+  transform-origin: 600px 290px;
+  animation: fl-pectoral 0.56s ease-in-out infinite alternate;
+}
+.fl-glint {
+  animation: fl-glint 0.35s ease-in-out 1.05s both;
+}
+
+/* The slicing fin rides the cut: its leading edge sits exactly on it. */
+.fl-fin {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  animation: fl-fin 0.55s var(--fl-ease-slice) 1.7s both;
+}
+.fl-fin svg {
+  display: block;
+  width: 6.5rem;
+  height: auto;
+  margin-left: calc(-6.5rem * 114 / 120);
+  transform: translateY(-96%);
+}
+
+.fl-bubble {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: var(--s);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fl-bubble 0.9s ease-out var(--d) both;
+}
+
+@keyframes fl-done {
+  to {
+    visibility: hidden;
+  }
+}
+/* The cut runs left to right, the gap behind it widening into a wedge. */
+@keyframes fl-cut-top {
+  from {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%, 0 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 82%);
+  }
+}
+@keyframes fl-cut-bottom {
+  from {
+    clip-path: polygon(0 0, 0% 0, 100% 0, 100% 100%, 0 100%);
+  }
+  to {
+    clip-path: polygon(0 18%, 100% 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+@keyframes fl-part-top {
+  to {
+    transform: translateY(-100%);
+  }
+}
+@keyframes fl-part-bottom {
+  to {
+    transform: translateY(100%);
+  }
+}
+@keyframes fl-fin {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100vw + 7rem));
+  }
+}
+@keyframes fl-swim {
+  from {
+    transform: translateX(-95vw);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes fl-bob {
+  0% {
+    transform: translateY(6svh) rotate(-4deg);
+  }
+  45% {
+    transform: translateY(-3svh) rotate(3deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+/* Holds after the swim (53%), throws the chin up for the grin, then dives nose first. */
+@keyframes fl-pose {
+  0%,
+  53% {
+    transform: none;
+    animation-timing-function: ease-out;
+  }
+  62% {
+    transform: translateY(-1.5rem) rotate(-7deg);
+    animation-timing-function: ease-in-out;
+  }
+  74% {
+    transform: rotate(1deg);
+    animation-timing-function: ease-in-out;
+  }
+  78% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.9, 0.5);
+  }
+  100% {
+    transform: translate(16vw, calc(50svh + 100%)) rotate(40deg);
+  }
+}
+@keyframes fl-pectoral {
+  from {
+    transform: rotate(-5deg);
+  }
+  to {
+    transform: rotate(8deg);
+  }
+}
+@keyframes fl-glint {
+  from {
+    transform: translateX(-62px);
+  }
+  to {
+    transform: translateX(62px);
+  }
+}
+@keyframes fl-bubble {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.4);
+  }
+  25% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20svh) scale(1);
+  }
+}

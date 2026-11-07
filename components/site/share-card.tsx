@@ -49,7 +49,7 @@ function wrap(ctx: CanvasRenderingContext2D, text: string, width: number) {
 
 /**
  * The card as a Story-sized PNG: the rubber platform, a scheda clipped to
- * it with its ink header, the headline in condensed caps, rows ticked in
+ * it with its ink header, the headline in display caps, rows ticked in
  * azure, the gym's handle at the foot.
  */
 async function draw(card: Card, footer: string) {
@@ -59,9 +59,9 @@ async function draw(card: Card, footer: string) {
   const azure = token("--primary")
   const canvas = Object.assign(document.createElement("canvas"), { width: W, height: H })
   const ctx = canvas.getContext("2d")!
-  const font = (weight: number, size: number, condensed = true) => {
+  const font = (weight: number, size: number) => {
     ctx.font = `${weight} ${size}px ${family}`
-    ctx.fontStretch = condensed ? "condensed" : "normal"
+    ctx.wordSpacing = `${-0.18 * size}px`
   }
 
   // The platform, with its grain.
@@ -91,7 +91,7 @@ async function draw(card: Card, footer: string) {
   const x = 70
   const w = W - 140
   const HEAD = 120
-  font(700, 52)
+  font(700, 44)
   const rows = card.rows.map((r) => wrap(ctx, r.toUpperCase(), w - 190))
   const body = (card.headline ? 340 : 0) + rows.reduce((h, lines) => h + 44 + lines.length * 62, 0) + 60
   const top = 580
@@ -108,13 +108,18 @@ async function draw(card: Card, footer: string) {
   ctx.beginPath()
   ctx.roundRect(x + 8, y + 8, w - 16, HEAD - 8, [32, 32, 0, 0])
   ctx.fill()
-  font(700, 40)
+  font(700, 32)
   ctx.fillStyle = "#ffffff"
-  ctx.fillText(card.title.toUpperCase(), x + 50, y + 80)
-  ctx.fillStyle = "rgba(255,255,255,0.6)"
-  ctx.textAlign = "right"
-  ctx.fillText("PALESTRA AZZURRA", x + w - 50, y + 80)
-  ctx.textAlign = "left"
+  const heading = card.title.toUpperCase()
+  ctx.fillText(heading, x + 50, y + 76)
+  // Long titles take the whole header: the name is already above the sheet.
+  const brand = "PALESTRA AZZURRA"
+  if (ctx.measureText(heading).width + ctx.measureText(brand).width + 60 <= w - 100) {
+    ctx.fillStyle = "rgba(255,255,255,0.6)"
+    ctx.textAlign = "right"
+    ctx.fillText(brand, x + w - 50, y + 76)
+    ctx.textAlign = "left"
+  }
 
   let cy = y + HEAD + 70
   if (card.headline) {
@@ -130,7 +135,7 @@ async function draw(card: Card, footer: string) {
     lines.slice(0, 2).forEach((l, i) => ctx.fillText(l, x + 50, cy + size * 0.8 + i * size * 0.9))
     cy += size * 0.9 * Math.min(lines.length, 2) + 80
   }
-  font(700, 52)
+  font(700, 44)
   for (const lines of rows) {
     if (cy + lines.length * 62 > y + sheetH - 40) break
     ctx.strokeStyle = "#d3dbe4"
@@ -153,7 +158,7 @@ async function draw(card: Card, footer: string) {
     cy += 44 + lines.length * 62
   }
 
-  font(700, 44)
+  font(700, 36)
   ctx.fillStyle = "#ffffff"
   ctx.fillText(footer.toUpperCase(), 90, H - 140)
 

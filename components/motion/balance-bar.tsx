@@ -27,7 +27,7 @@ export function BalanceBar({ left, right }: { left: string; right: string }) {
 function Plate({ label, className }: { label: string; className?: string }) {
   return (
     <div
-      className={`absolute top-1/2 flex h-40 w-[clamp(4.5rem,11vw,7rem)] -translate-y-1/2 items-center justify-center rounded-[1.1rem] bg-primary text-primary-foreground sm:h-56 ${className}`}
+      className={`absolute top-1/2 flex h-40 w-[clamp(3.25rem,11vw,7rem)] -translate-y-1/2 items-center justify-center rounded-[1.1rem] bg-primary text-primary-foreground sm:h-56 ${className}`}
     >
       <span className="font-stamp -rotate-90 text-center text-[clamp(0.85rem,1.6vw,1.15rem)] leading-tight whitespace-nowrap">
         {label}

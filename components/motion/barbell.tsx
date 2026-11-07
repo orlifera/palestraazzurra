@@ -227,7 +227,7 @@ function Side({
                 textAnchor="middle"
                 dominantBaseline="central"
                 transform={`rotate(-90 ${p.x + p.w / 2} ${CY})`}
-                style={{ fontStretch: "75%", letterSpacing: "0.08em" }}
+                style={{ letterSpacing: "0.08em" }}
               >
                 {p.kg} KG
               </text>

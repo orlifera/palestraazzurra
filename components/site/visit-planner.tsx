@@ -6,7 +6,14 @@ import { useLocale, useTranslations } from "next-intl"
 import { useState, useSyncExternalStore } from "react"
 
 import { contact, openingHours } from "@/data/site"
-import { addDays, closureOn, fmt, romeMinutes, romeToday, weekdayOf } from "@/lib/hours"
+import {
+  addDays,
+  closureOn,
+  fmt,
+  romeMinutes,
+  romeToday,
+  weekdayOf,
+} from "@/lib/hours"
 import { cn } from "@/lib/utils"
 
 const noop = () => () => {}
@@ -34,7 +41,10 @@ function downloadIcs(title: string, date: string, from: number, to: number) {
     "END:VCALENDAR",
   ].join("\r\n")
   const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }))
-  const a = Object.assign(document.createElement("a"), { href: url, download: "palestra-azzurra.ics" })
+  const a = Object.assign(document.createElement("a"), {
+    href: url,
+    download: "palestra-azzurra.ics",
+  })
   a.click()
   URL.revokeObjectURL(url)
 }
@@ -42,14 +52,18 @@ function downloadIcs(title: string, date: string, from: number, to: number) {
 /**
  * Pick a day of the coming week and a time: the planner answers from the
  * real hours and closures (data/site.ts), and puts the visit in the
- * visitor's calendar. Sits on the hours band.
+ * visitor's calendar. Opened from the hours band, in a rubber drawer.
  */
 export function VisitPlanner() {
   const t = useTranslations("planner")
   const s = useTranslations("status")
   const locale = useLocale()
   // The coming week only exists in the browser: the build doesn't know the date.
-  const today = useSyncExternalStore(noop, () => romeToday(), () => null)
+  const today = useSyncExternalStore(
+    noop,
+    () => romeToday(),
+    () => null
+  )
   const [offset, setOffset] = useState(0)
   const [time, setTime] = useState<number | null>(null)
 
@@ -63,7 +77,10 @@ export function VisitPlanner() {
   // Half-hour slots from opening to half an hour before closing, from now on if it's today.
   const now = offset === 0 ? romeMinutes() : 0
   const slots = open
-    ? Array.from({ length: (closes - opens) / 30 }, (_, i) => opens + i * 30).filter((m) => m + 30 > now && m < closes)
+    ? Array.from(
+        { length: (closes - opens) / 30 },
+        (_, i) => opens + i * 30
+      ).filter((m) => m + 30 > now && m < closes)
     : []
   const at = time !== null && slots.includes(time) ? time : slots[0]
   const left = open && at !== undefined ? closes - at : 0
@@ -73,16 +90,18 @@ export function VisitPlanner() {
       ? s("today")
       : o === 1
         ? s("tomorrow")
-        : new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", timeZone: "UTC" }).format(
-            new Date(`${addDays(today, o)}T12:00:00Z`)
-          )
+        : new Intl.DateTimeFormat(locale, {
+            weekday: "short",
+            day: "numeric",
+            timeZone: "UTC",
+          }).format(new Date(`${addDays(today, o)}T12:00:00Z`))
 
   return (
-    <div className="rounded-[var(--radius)] border-2 border-platform-line p-5 sm:p-6">
-      <h3 className="font-stamp text-lg">{t("title")}</h3>
-
-      <fieldset className="mt-5">
-        <legend className="font-stamp mb-2.5 text-xs text-platform-muted">{t("day")}</legend>
+    <div>
+      <fieldset>
+        <legend className="mb-2.5 font-stamp text-xs text-platform-muted">
+          {t("day")}
+        </legend>
         <div role="radiogroup" className="flex flex-wrap gap-2">
           {Array.from({ length: 7 }, (_, o) => (
             <Pill key={o} selected={o === offset} onClick={() => setOffset(o)}>
@@ -94,8 +113,13 @@ export function VisitPlanner() {
 
       {slots.length ? (
         <fieldset className="mt-5">
-          <legend className="font-stamp mb-2.5 text-xs text-platform-muted">{t("time")}</legend>
-          <div role="radiogroup" className="flex max-h-32 flex-wrap gap-2 overflow-y-auto pr-1">
+          <legend className="mb-2.5 font-stamp text-xs text-platform-muted">
+            {t("time")}
+          </legend>
+          <div
+            role="radiogroup"
+            className="flex max-h-56 flex-wrap gap-2 overflow-y-auto pr-1"
+          >
             {slots.map((m) => (
               <Pill key={m} selected={m === at} onClick={() => setTime(m)}>
                 <span className="tabular">{fmt(m)}</span>
@@ -106,23 +130,33 @@ export function VisitPlanner() {
       ) : null}
 
       <p className="mt-5 min-h-7 text-base font-semibold" aria-live="polite">
-        {closure
-          ? closure.note
-            ? t("closure", { note: closure.note[locale as "it" | "en"] })
-            : t("closedDay")
-          : !slots.length
-            ? open && offset === 0
-              ? t("closedToday")
-              : t("closedDay")
-            : left < SHORT
-              ? <span className="text-primary">{t("late", { time: fmt(closes), minutes: left })}</span>
-              : t("ok", { time: fmt(closes) })}
+        {closure ? (
+          closure.note ? (
+            t("closure", { note: closure.note[locale as "it" | "en"] })
+          ) : (
+            t("closedDay")
+          )
+        ) : !slots.length ? (
+          open && offset === 0 ? (
+            t("closedToday")
+          ) : (
+            t("closedDay")
+          )
+        ) : left < SHORT ? (
+          <span className="text-primary">
+            {t("late", { time: fmt(closes), minutes: left })}
+          </span>
+        ) : (
+          t("ok", { time: fmt(closes) })
+        )}
       </p>
 
       {slots.length && at !== undefined ? (
         <button
           type="button"
-          onClick={() => downloadIcs(t("event"), date, at, Math.min(at + 60, closes))}
+          onClick={() =>
+            downloadIcs(t("event"), date, at, Math.min(at + 60, closes))
+          }
           className="mt-4 inline-flex h-12 items-center gap-2 rounded-full border-2 border-platform-foreground px-5 font-bold transition hover:bg-platform-foreground hover:text-platform focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-ring"
         >
           <HugeiconsIcon icon={Calendar03Icon} className="size-5" />
@@ -133,7 +167,15 @@ export function VisitPlanner() {
   )
 }
 
-function Pill({ selected, onClick, children }: { selected: boolean; onClick: () => void; children: React.ReactNode }) {
+function Pill({
+  selected,
+  onClick,
+  children,
+}: {
+  selected: boolean
+  onClick: () => void
+  children: React.ReactNode
+}) {
   return (
     <button
       type="button"
@@ -142,7 +184,9 @@ function Pill({ selected, onClick, children }: { selected: boolean; onClick: () 
       onClick={onClick}
       className={cn(
         "min-h-10 rounded-full border-2 px-3.5 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-        selected ? "border-primary bg-primary text-primary-foreground" : "border-platform-line hover:border-primary"
+        selected
+          ? "border-primary bg-primary text-primary-foreground"
+          : "border-platform-line hover:border-primary"
       )}
     >
       {children}

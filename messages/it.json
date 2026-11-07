@@ -437,5 +437,28 @@
   "app": {
     "install": "Aggiungi alla schermata Home",
     "ios": "Su iPhone: tocca Condividi, poi «Aggiungi alla schermata Home»."
+  },
+  "locker": {
+    "title": "Attrezzi",
+    "lead": "Tutto quello che serve, quando serve: apri solo quello che usi.",
+    "open": "Apri",
+    "start": "Inizia",
+    "fill": "Compila",
+    "plan": "Pianifica",
+    "groups": {
+      "floor": "In sala",
+      "before": "Prima di venire"
+    },
+    "items": {
+      "timer": "Il cronometro tra una serie e l’altra.",
+      "plates": "Quali dischi mettere, lato per lato.",
+      "orm": "Stima il massimale e i carichi in percentuale.",
+      "prs": "I tuoi record, salvati sul telefono.",
+      "guide": "Come si fanno gli esercizi principali.",
+      "finder": "Tre domande per trovare il corso giusto.",
+      "builder": "Segna i tuoi obiettivi e mandaci la scheda.",
+      "tour": "La palestra, stanza per stanza.",
+      "planner": "Scegli giorno e ora e mettila in calendario."
+    }
   }
 }

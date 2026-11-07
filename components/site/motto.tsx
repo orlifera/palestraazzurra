@@ -18,7 +18,7 @@ export function Motto() {
       <h2 id="motto-title" className="sr-only">
         {t("title")}
       </h2>
-      <div aria-hidden className="font-display text-[clamp(4.5rem,13vw,12rem)]">
+      <div aria-hidden className="font-display text-[clamp(4rem,16vw,15rem)]">
         <ScrollVelocity
           texts={[
             <span key="a" className="pr-[0.35em]">{t("title")} <span className="text-primary">·</span></span>,
@@ -30,7 +30,7 @@ export function Motto() {
         />
       </div>
 
-      <div className="mx-auto mt-16 grid max-w-[90rem] gap-10 px-4 sm:px-6 lg:mt-24 lg:grid-cols-12 lg:px-10">
+      <div className="mx-auto mt-10 grid sm:mt-16 max-w-[90rem] gap-10 px-4 sm:px-6 lg:mt-24 lg:grid-cols-12 lg:px-10">
         <Reveal className="lg:col-span-8">
           <p className="text-2xl leading-relaxed text-pretty sm:text-3xl">
             <strong className="font-stamp text-primary">{t("sub")}</strong>{" "}
@@ -39,11 +39,11 @@ export function Motto() {
         </Reveal>
       </div>
 
-      <div className="mx-auto mt-20 max-w-[90rem] px-6 sm:mt-28 lg:px-10">
+      <div className="mx-auto mt-12 max-w-[90rem] px-6 sm:mt-28 lg:px-10">
         <BalanceBar left={t("a")} right={t("b")} />
       </div>
 
-      <Reveal className="mx-auto mt-20 max-w-3xl px-4 text-center sm:mt-28 sm:px-6">
+      <Reveal className="mx-auto mt-12 max-w-3xl px-4 text-center sm:mt-28 sm:px-6">
         <p className="text-lg leading-relaxed text-pretty text-platform-muted sm:text-xl">
           {t("after")}
         </p>
